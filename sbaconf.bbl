@@ -1,0 +1,106 @@
+\begin{thebibliography}{14}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+
+\bibitem[{Chen and Chiang(2018)}]{ProportionalPressureABS2023}
+Chen, C.P. and Chiang, M.H. (2018).
+\newblock Development of proportional pressure control valve for hydraulic
+  braking actuator of automobile abs.
+\newblock \emph{Applied Sciences}, 8(4), 639.
+\newblock \doi{10.3390/app8040639}.
+\newblock \urlprefix\url{https://www.mdpi.com/2076-3417/8/4/639}.
+
+\bibitem[{Chen(2017)}]{ChenLv2017}
+Chen, L.H.W.D.C. (2017).
+\newblock High-precision hydraulic pressure control based on linear
+  pressure-drop modulation in valve critical equilibrium state.
+\newblock \emph{IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 64, NO. 10,
+  OCTOBER 2017}.
+
+\bibitem[{Franklin et~al.(1998)Franklin, Powell, and
+  Workman}]{FranklinPowellWorkman1998}
+Franklin, G.F., Powell, J.D., and Workman, M.L. (1998).
+\newblock \emph{Digital Control of Dynamic Systems}.
+\newblock Ellis-Kagle Press.
+
+\bibitem[{Houhua~Jing(2022)}]{HouhuaJing2022}
+Houhua~Jing, Liwen~Dong, R.F. (2022).
+\newblock Active pressure control and experimental application based on
+  automotive hydraulic control unit.
+\newblock \emph{Proceedings of the 41st Chinese Control Conference July 25-27,
+  2022, Hefei, China}.
+
+\bibitem[{Kapinski et~al.(2016)Kapinski, Deshmukh, Jin, Ito, and
+  Butts}]{KapinskiJamesDeshmukh2016}
+Kapinski, J., Deshmukh, J.V., Jin, X., Ito, H., and Butts, K. (2016).
+\newblock Simulation-based approaches for verification of embedded control
+  systems: An overview of traditional and advanced modeling, testing, and
+  verification techniques.
+\newblock \emph{IEEE Control Systems Magazine}, 36(6), 45--64.
+\newblock \doi{10.1109/MCS.2016.2602089}.
+
+\bibitem[{Lentin~Joseph(2022)}]{Lentin2022}
+Lentin~Joseph, A.K.M. (2022).
+\newblock \emph{Autonomous Driving and Advanced Driver-Assistance Systems
+  (ADAS): applications, development, legal issues, and testing}.
+\newblock CRC Press Taylor.
+
+\bibitem[{Limpert(2011)}]{Rudolf2011}
+Limpert, R. (2011).
+\newblock \emph{Brake Design and Safety}.
+\newblock SAE International.
+
+\bibitem[{Lv et~al.(2014)Lv, Zhang, Li, Sun, and Yuan}]{Lv2014}
+Lv, C., Zhang, J., Li, Y., Sun, D., and Yuan, Y. (2014).
+\newblock Hardware-in-the-loop simulation of pressure-difference-limiting
+  modulation of the hydraulic brake for regenerative braking control of
+  electric vehicles.
+\newblock \emph{Proceedings of the Institution of Mechanical Engineers, Part D:
+  Journal of Automobile Engineering}, 228(6), 649--662.
+\newblock \doi{10.1177/0954407013516942}.
+
+\bibitem[{Ogata(1997)}]{Ogata1997}
+Ogata, K. (1997).
+\newblock \emph{Engenharia de Controle Moderno}.
+\newblock PRENTICE-HALL INTERNATIONAL, INC.
+
+\bibitem[{Oh et~al.(2022)Oh, Hwang, Song, and Kim}]{MotorParametricDesign2023}
+Oh, S.Y., Hwang, K.Y., Song, B.K., and Kim, S.I. (2022).
+\newblock Motor parametric design using an electro-hydraulic model of a brake
+  system.
+\newblock \emph{IEEE Access}, 10, 61375--61384.
+\newblock \doi{10.1109/ACCESS.2022.3181616}.
+
+\bibitem[{Reif(2014)}]{Konrad2014}
+Reif, K. (2014).
+\newblock \emph{Brakes, Brake Control and Driver Assistance Systems Function,
+  Regulation and Components Bosch Professional Automotive Information}.
+\newblock Springer.
+
+\bibitem[{Wang et~al.(2015)Wang, Shi, and Yu}]{WangBingbing2015}
+Wang, B., Shi, G., and Yu, L. (2015).
+\newblock Modeling and analysis of the electro-hydraulic proportional valve
+  controlled motor system supplied by variable pressure accumulator.
+\newblock In \emph{Proceedings of the 2015 International Conference on Fluid
+  Power and Mechatronics}.
+
+\bibitem[{Yang et~al.(2018)Yang, Li, and
+  Zhang}]{PressureCoordinatedControl2023}
+Yang, Y., Li, G., and Zhang, Q. (2018).
+\newblock A pressure-coordinated control for vehicle electro-hydraulic braking
+  systems.
+\newblock \emph{MDPI - energies}.
+\newblock \doi{https://doi.org/10.3390/en11092336}.
+
+\bibitem[{Zeng et~al.(2023)Zeng, Yang, and Huang}]{ZengYangHuang2023}
+Zeng, F., Yang, L., and Huang, S. (2023).
+\newblock Design and application of {ESC} hydraulic control unit test system.
+\newblock In \emph{Proceedings of the 2023 International Conference on
+  Computers, Information Processing and Advanced Education (CIPAE)}.
+
+\end{thebibliography}
