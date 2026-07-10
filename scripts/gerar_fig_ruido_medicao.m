@@ -11,6 +11,9 @@ clear; close all; clc;
 %% 1) Configure aqui
 MODEL_NAME = 'SEU_MODELO_AQUI';   % ex.: 'modulador_pressao_lqi'
 STOP_TIME  = '2.0';              % [s] string, para compatibilidade com Simulink
+scriptDir = fileparts(mfilename('fullpath'));
+outDir = fullfile(scriptDir,'figuras');
+if ~exist(outDir,'dir'), mkdir(outDir); end
 
 % Parâmetros do ensaio de ruído (devem ser consumidos pelo modelo)
 ENABLE_MEAS_NOISE = true;
@@ -20,7 +23,8 @@ MEAS_NOISE_STD_PA = 5e4;          % desvio-padrão [Pa] (ex.: 0.5 bar)
 % Caso contrário, deixe 0.
 P_RET_PA = 0;
 
-OUT_PNG = fullfile(pwd, 'simulacao_ruido_medicao.png');
+OUT_PNG = fullfile(outDir, 'simulacao_ruido_medicao.png');
+OUT_PDF = fullfile(outDir, 'simulacao_ruido_medicao.pdf');
 
 %% 2) Rodar simulação
 assert(exist('sim', 'file') == 2, 'Simulink não disponível no caminho do MATLAB.');
@@ -120,5 +124,7 @@ xlabel('Tempo [s]');
 ylabel('Comandos');
 legend('\omega_p', 'u_{in}', 'u_{out}', 'Location','best');
 
-exportgraphics(fig, OUT_PNG, 'Resolution', 300);
+exportgraphics(fig, OUT_PNG, 'Resolution', 600);
+exportgraphics(fig, OUT_PDF, 'ContentType','vector');
 fprintf('Figura exportada: %s\n', OUT_PNG);
+fprintf('Figura vetorial exportada: %s\n', OUT_PDF);

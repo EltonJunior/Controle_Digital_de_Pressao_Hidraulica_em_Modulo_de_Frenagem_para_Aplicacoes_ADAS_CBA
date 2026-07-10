@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.1.8)  20 MAR 2026 11:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.1.8)  9 JUL 2026 18:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"d:/OneDrive - Continental AG/MestradoUspPoli/Anti-Brake System/Overleaf/Controle_Digital_de_Press√£o_Hidr√°ulica_em_M√≥dulo_de_Frenagem_para_Aplica√ß√µes_ADAS_v01/sbaconf.tex"
-(d:/OneDrive - Continental AG/MestradoUspPoli/Anti-Brake System/Overleaf/Controle_Digital_de_Press√£o_Hidr√°ulica_em_M√≥dulo_de_Frenagem_para_Aplica√ß√µes_ADAS_v01/sbaconf.tex
+**"d:/OneDrive - Continental AG/MestradoUspPoli/Anti-Brake System/Overleaf/Mestrado/Controle_Digital_de_Pressao_Hidraulica_ADAS_CBA/sbaconf.tex"
+(d:/OneDrive - Continental AG/MestradoUspPoli/Anti-Brake System/Overleaf/Mestrado/Controle_Digital_de_Pressao_Hidraulica_ADAS_CBA/sbaconf.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
 (ifacconf.cls
@@ -193,20 +193,39 @@ LaTeX Info: Redefining \] on input line 2954.
 ) (C:\Users\uidq5744\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+) (C:\Users\uidq5744\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen172
+\lightrulewidth=\dimen173
+\cmidrulewidth=\dimen174
+\belowrulesep=\dimen175
+\belowbottomsep=\dimen176
+\aboverulesep=\dimen177
+\abovetopsep=\dimen178
+\cmidrulesep=\dimen179
+\cmidrulekern=\dimen180
+\defaultaddspace=\dimen181
+\@cmidla=\count293
+\@cmidlb=\count294
+\@aboverulesep=\dimen182
+\@belowrulesep=\dimen183
+\@thisruleclass=\count295
+\@lastruleclass=\count296
+\@thisrulewidth=\dimen184
 ) (C:\Users\uidq5744\AppData\Local\Programs\MiKTeX\tex/latex/natbib\natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip56
 \bibsep=\skip57
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count293
+\c@NAT@ctr=\count297
 ) (C:\Users\uidq5744\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
 Package: babel 2024/01/07 v24.1 The Babel package
-\babel@savecnt=\count294
-\U@D=\dimen172
+\babel@savecnt=\count298
+\U@D=\dimen185
 \l@unhyphenated=\language79
  (C:\Users\uidq5744\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
 \bbl@readstream=\read2
-\bbl@dirlevel=\count295
+\bbl@dirlevel=\count299
 
 *************************************
 * Local config file bblopts.cfg used
@@ -216,7 +235,7 @@ File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of 
 ) (C:\Users\uidq5744\AppData\Local\Programs\MiKTeX\tex/latex/babel-spanish\spanish.ldf
 Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
 \es@quottoks=\toks27
-\es@quotdepth=\count296
+\es@quotdepth=\count300
 Package babel Info: Making " an active character on input line 570.
 Package babel Info: Making . an active character on input line 675.
 Package babel Info: Making < an active character on input line 722.
@@ -250,42 +269,42 @@ Package: ae 2001/02/12 1.3 Almost European Computer Modern
  (C:\Users\uidq5744\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 ))
-LaTeX Font Info:    Trying to load font information for T1+aer on input line 60.
+LaTeX Font Info:    Trying to load font information for T1+aer on input line 68.
  (C:\Users\uidq5744\AppData\Local\Programs\MiKTeX\tex/latex/ae\t1aer.fd
 File: t1aer.fd 1997/11/16 Font definitions for T1/aer.
 ) (C:\Users\uidq5744\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count297
+\l__color_backend_stack_int=\count301
 \l__pdf_internal_box=\box58
 ) (sbaconf.aux)
 \openout1 = `sbaconf.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
  (C:\Users\uidq5744\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count298
-\scratchdimen=\dimen173
+\scratchcounter=\count302
+\scratchdimen=\dimen186
 \scratchbox=\box59
-\nofMPsegments=\count299
-\nofMParguments=\count300
+\nofMPsegments=\count303
+\nofMParguments=\count304
 \everyMPshowfont=\toks30
-\MPscratchCnt=\count301
-\MPscratchDim=\dimen174
-\MPnumerator=\count302
-\makeMPintoPDFobject=\count303
+\MPscratchCnt=\count305
+\MPscratchDim=\dimen187
+\MPnumerator=\count306
+\makeMPintoPDFobject=\count307
 \everyMPtoPDFconversion=\toks31
 ) (C:\Users\uidq5744\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -317,146 +336,149 @@ Package grfext Info: Graphics extension search list:
  (C:\Users\uidq5744\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-LaTeX Font Info:    Calculating math sizes for size <14> on input line 76.
-\c@sv@footnote=\count304
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 84.
+\c@sv@footnote=\count308
  [1{C:/Users/uidq5744/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Overfull \hbox (1.68198pt too wide) in paragraph at lines 196--196
+Overfull \hbox (1.68198pt too wide) in paragraph at lines 204--204
  \T1/aer/m/it/10 2.1 Da de-sa-ce-le-ra-Á„o ‡ re-fe-rÍn-cia de pres-s„o (si-nal ex-terno
  []
 
 [2
 
 ]
-Overfull \hbox (10.64241pt too wide) in paragraph at lines 204--204
+Overfull \hbox (10.64241pt too wide) in paragraph at lines 212--212
  \T1/aer/m/it/10 2.2 Mo-delo hi-dr·u-lico n„o li-near con-cen-trado (duas pres-sıes) 
  []
 
 <modulo_2P_malha_aberta.png, id=12, 1064.47687pt x 358.33875pt>
 File: modulo_2P_malha_aberta.png Graphic file (type png)
 <use modulo_2P_malha_aberta.png>
-Package pdftex.def Info: modulo_2P_malha_aberta.png  used on input line 255.
+Package pdftex.def Info: modulo_2P_malha_aberta.png  used on input line 263.
 (pdftex.def)             Requested size: 233.3125pt x 78.5395pt.
 [3 <./modulo_2P_malha_aberta.png>]
 <modulo_2P_malha_fechada.png, id=23, 816.04875pt x 477.28313pt>
 File: modulo_2P_malha_fechada.png Graphic file (type png)
 <use modulo_2P_malha_fechada.png>
-Package pdftex.def Info: modulo_2P_malha_fechada.png  used on input line 324.
+Package pdftex.def Info: modulo_2P_malha_fechada.png  used on input line 332.
 (pdftex.def)             Requested size: 233.3125pt x 136.45677pt.
-<artigo_ensaio_malha_aberta_integrado_real.png, id=24, 688.7331pt x 529.98pt>
-File: artigo_ensaio_malha_aberta_integrado_real.png Graphic file (type png)
-<use artigo_ensaio_malha_aberta_integrado_real.png>
-Package pdftex.def Info: artigo_ensaio_malha_aberta_integrado_real.png  used on input line 342.
-(pdftex.def)             Requested size: 233.3125pt x 179.53577pt.
+<scripts/figuras/artigo_ensaio_malha_aberta_integrado_real.pdf, id=24, 691.58376pt x 533.995pt>
+File: scripts/figuras/artigo_ensaio_malha_aberta_integrado_real.pdf Graphic file (type pdf)
+<use scripts/figuras/artigo_ensaio_malha_aberta_integrado_real.pdf>
+Package pdftex.def Info: scripts/figuras/artigo_ensaio_malha_aberta_integrado_real.pdf  used on input line 350.
+(pdftex.def)             Requested size: 250.38434pt x 193.3299pt.
 
-Overfull \hbox (9.13005pt too wide) in paragraph at lines 348--349
+Overfull \hbox (9.13005pt too wide) in paragraph at lines 356--357
 []\T1/aer/m/n/10 Em ma-lha fe-chada (Fi-gura 4[]), a ar-qui-te-tura LQI+observador
  []
 
-<simulacao_comandos_e_pressao.png, id=25, 696.6828pt x 524.6802pt>
-File: simulacao_comandos_e_pressao.png Graphic file (type png)
-<use simulacao_comandos_e_pressao.png>
-Package pdftex.def Info: simulacao_comandos_e_pressao.png  used on input line 354.
-(pdftex.def)             Requested size: 233.3125pt x 175.70691pt.
-<artigo_item01_metricas_tracking.png, id=26, 795.6927pt x 558.888pt>
-File: artigo_item01_metricas_tracking.png Graphic file (type png)
-<use artigo_item01_metricas_tracking.png>
-Package pdftex.def Info: artigo_item01_metricas_tracking.png  used on input line 380.
-(pdftex.def)             Requested size: 233.3125pt x 163.87276pt.
-<artigo_item01_metricas_desempenho.png, id=27, 776.4207pt x 515.526pt>
-File: artigo_item01_metricas_desempenho.png Graphic file (type png)
-<use artigo_item01_metricas_desempenho.png>
-Package pdftex.def Info: artigo_item01_metricas_desempenho.png  used on input line 380.
-(pdftex.def)             Requested size: 233.3125pt x 154.9107pt.
 [4 <./modulo_2P_malha_fechada.png>]
-<artigo_item02_dpdt_saturacao.png, id=32, 773.5299pt x 559.1289pt>
-File: artigo_item02_dpdt_saturacao.png Graphic file (type png)
-<use artigo_item02_dpdt_saturacao.png>
-Package pdftex.def Info: artigo_item02_dpdt_saturacao.png  used on input line 392.
+<scripts/figuras/simulacao_comandos_e_pressao.pdf, id=29, 699.61375pt x 526.96875pt>
+File: scripts/figuras/simulacao_comandos_e_pressao.pdf Graphic file (type pdf)
+<use scripts/figuras/simulacao_comandos_e_pressao.pdf>
+Package pdftex.def Info: scripts/figuras/simulacao_comandos_e_pressao.pdf  used on input line 376.
+(pdftex.def)             Requested size: 250.38434pt x 188.59091pt.
+<scripts/figuras/artigo_item01_metricas_tracking.png, id=30, 795.6927pt x 558.888pt>
+File: scripts/figuras/artigo_item01_metricas_tracking.png Graphic file (type png)
+<use scripts/figuras/artigo_item01_metricas_tracking.png>
+Package pdftex.def Info: scripts/figuras/artigo_item01_metricas_tracking.png  used on input line 402.
+(pdftex.def)             Requested size: 233.3125pt x 163.87276pt.
+<scripts/figuras/artigo_item01_metricas_desempenho.png, id=31, 778.5888pt x 515.2851pt>
+File: scripts/figuras/artigo_item01_metricas_desempenho.png Graphic file (type png)
+<use scripts/figuras/artigo_item01_metricas_desempenho.png>
+Package pdftex.def Info: scripts/figuras/artigo_item01_metricas_desempenho.png  used on input line 402.
+(pdftex.def)             Requested size: 233.3125pt x 154.40588pt.
+<scripts/figuras/artigo_item02_dpdt_saturacao.png, id=32, 773.5299pt x 559.1289pt>
+File: scripts/figuras/artigo_item02_dpdt_saturacao.png Graphic file (type png)
+<use scripts/figuras/artigo_item02_dpdt_saturacao.png>
+Package pdftex.def Info: scripts/figuras/artigo_item02_dpdt_saturacao.png  used on input line 414.
 (pdftex.def)             Requested size: 233.3125pt x 168.6443pt.
-<artigo_item03_assimetria_subida_descida.png, id=33, 768.9528pt x 551.4201pt>
-File: artigo_item03_assimetria_subida_descida.png Graphic file (type png)
-<use artigo_item03_assimetria_subida_descida.png>
-Package pdftex.def Info: artigo_item03_assimetria_subida_descida.png  used on input line 404.
+<scripts/figuras/artigo_item03_assimetria_subida_descida.png, id=33, 768.9528pt x 551.4201pt>
+File: scripts/figuras/artigo_item03_assimetria_subida_descida.png Graphic file (type png)
+<use scripts/figuras/artigo_item03_assimetria_subida_descida.png>
+Package pdftex.def Info: scripts/figuras/artigo_item03_assimetria_subida_descida.png  used on input line 426.
 (pdftex.def)             Requested size: 233.3125pt x 167.31204pt.
- [5 <./artigo_ensaio_malha_aberta_integrado_real.png (PNG copy)> <./simulacao_comandos_e_pressao.png (PNG copy)> <./artigo_item01_metricas_tracking.png (PNG copy)> <./artigo_item01_metricas_desempenho.png (PNG copy)> <./artigo_item02_dpdt_saturacao.png (PNG copy)> <./artigo_item03_assimetria_subida_descida.png (PNG copy)>]
-<artigo_item04_ripple_fft.png, id=37, 773.5299pt x 559.3698pt>
-File: artigo_item04_ripple_fft.png Graphic file (type png)
-<use artigo_item04_ripple_fft.png>
-Package pdftex.def Info: artigo_item04_ripple_fft.png  used on input line 416.
+ [5 <./scripts/figuras/artigo_ensaio_malha_aberta_integrado_real.pdf> <./scripts/figuras/simulacao_comandos_e_pressao.pdf> <./scripts/figuras/artigo_item01_metricas_tracking.png (PNG copy)> <./scripts/figuras/artigo_item01_metricas_desempenho.png (PNG copy)>]
+<scripts/figuras/artigo_item04_ripple_fft.png, id=84, 773.5299pt x 559.3698pt>
+File: scripts/figuras/artigo_item04_ripple_fft.png Graphic file (type png)
+<use scripts/figuras/artigo_item04_ripple_fft.png>
+Package pdftex.def Info: scripts/figuras/artigo_item04_ripple_fft.png  used on input line 438.
 (pdftex.def)             Requested size: 233.3125pt x 168.71696pt.
-<artigo_item06_sensibilidade_parametrica.png, id=38, 772.0845pt x 379.6584pt>
-File: artigo_item06_sensibilidade_parametrica.png Graphic file (type png)
-<use artigo_item06_sensibilidade_parametrica.png>
-Package pdftex.def Info: artigo_item06_sensibilidade_parametrica.png  used on input line 440.
+<scripts/figuras/artigo_item06_sensibilidade_parametrica.png, id=85, 772.0845pt x 379.6584pt>
+File: scripts/figuras/artigo_item06_sensibilidade_parametrica.png Graphic file (type png)
+<use scripts/figuras/artigo_item06_sensibilidade_parametrica.png>
+Package pdftex.def Info: scripts/figuras/artigo_item06_sensibilidade_parametrica.png  used on input line 462.
 (pdftex.def)             Requested size: 233.3125pt x 114.7268pt.
-<artigo_item07_atrasos_tempos.png, id=39, 721.2546pt x 363.759pt>
-File: artigo_item07_atrasos_tempos.png Graphic file (type png)
-<use artigo_item07_atrasos_tempos.png>
-Package pdftex.def Info: artigo_item07_atrasos_tempos.png  used on input line 452.
+<scripts/figuras/artigo_item07_atrasos_tempos.png, id=86, 721.2546pt x 363.759pt>
+File: scripts/figuras/artigo_item07_atrasos_tempos.png Graphic file (type png)
+<use scripts/figuras/artigo_item07_atrasos_tempos.png>
+Package pdftex.def Info: scripts/figuras/artigo_item07_atrasos_tempos.png  used on input line 474.
 (pdftex.def)             Requested size: 233.3125pt x 117.66522pt.
-<artigo_item08_mapa_comando_pressao.png, id=40, 800.2698pt x 557.4426pt>
-File: artigo_item08_mapa_comando_pressao.png Graphic file (type png)
-<use artigo_item08_mapa_comando_pressao.png>
-Package pdftex.def Info: artigo_item08_mapa_comando_pressao.png  used on input line 464.
+<scripts/figuras/artigo_item08_mapa_comando_pressao.png, id=87, 800.2698pt x 557.4426pt>
+File: scripts/figuras/artigo_item08_mapa_comando_pressao.png Graphic file (type png)
+<use scripts/figuras/artigo_item08_mapa_comando_pressao.png>
+Package pdftex.def Info: scripts/figuras/artigo_item08_mapa_comando_pressao.png  used on input line 486.
 (pdftex.def)             Requested size: 233.3125pt x 162.5133pt.
-<artigo_item09_tradeoff_erro_esforco.png, id=41, 609.477pt x 362.5545pt>
-File: artigo_item09_tradeoff_erro_esforco.png Graphic file (type png)
-<use artigo_item09_tradeoff_erro_esforco.png>
-Package pdftex.def Info: artigo_item09_tradeoff_erro_esforco.png  used on input line 476.
+<scripts/figuras/artigo_item09_tradeoff_erro_esforco.png, id=88, 609.477pt x 362.5545pt>
+File: scripts/figuras/artigo_item09_tradeoff_erro_esforco.png Graphic file (type png)
+<use scripts/figuras/artigo_item09_tradeoff_erro_esforco.png>
+Package pdftex.def Info: scripts/figuras/artigo_item09_tradeoff_erro_esforco.png  used on input line 498.
 (pdftex.def)             Requested size: 233.3125pt x 138.79005pt.
-<artigo_item10_robustez_ruido.png, id=42, 701.9826pt x 377.0085pt>
-File: artigo_item10_robustez_ruido.png Graphic file (type png)
-<use artigo_item10_robustez_ruido.png>
-Package pdftex.def Info: artigo_item10_robustez_ruido.png  used on input line 490.
+ [6 <./scripts/figuras/artigo_item02_dpdt_saturacao.png (PNG copy)> <./scripts/figuras/artigo_item03_assimetria_subida_descida.png (PNG copy)> <./scripts/figuras/artigo_item04_ripple_fft.png (PNG copy)> <./scripts/figuras/artigo_item06_sensibilidade_parametrica.png (PNG copy)> <./scripts/figuras/artigo_item07_atrasos_tempos.png (PNG copy)> <./scripts/figuras/artigo_item08_mapa_comando_pressao.png (PNG copy)>]
+<scripts/figuras/artigo_item10_robustez_ruido.png, id=92, 701.9826pt x 377.0085pt>
+File: scripts/figuras/artigo_item10_robustez_ruido.png Graphic file (type png)
+<use scripts/figuras/artigo_item10_robustez_ruido.png>
+Package pdftex.def Info: scripts/figuras/artigo_item10_robustez_ruido.png  used on input line 512.
 (pdftex.def)             Requested size: 233.3125pt x 125.30484pt.
- [6 <./artigo_item04_ripple_fft.png (PNG copy)> <./artigo_item06_sensibilidade_parametrica.png (PNG copy)> <./artigo_item07_atrasos_tempos.png (PNG copy)> <./artigo_item08_mapa_comando_pressao.png (PNG copy)> <./artigo_item09_tradeoff_erro_esforco.png (PNG copy)>]
-<artigo_item11_transicoes_referencia.png, id=46, 680.0607pt x 362.5545pt>
-File: artigo_item11_transicoes_referencia.png Graphic file (type png)
-<use artigo_item11_transicoes_referencia.png>
-Package pdftex.def Info: artigo_item11_transicoes_referencia.png  used on input line 502.
+<scripts/figuras/artigo_item11_transicoes_referencia.png, id=93, 680.0607pt x 362.5545pt>
+File: scripts/figuras/artigo_item11_transicoes_referencia.png Graphic file (type png)
+<use scripts/figuras/artigo_item11_transicoes_referencia.png>
+Package pdftex.def Info: scripts/figuras/artigo_item11_transicoes_referencia.png  used on input line 524.
 (pdftex.def)             Requested size: 233.3125pt x 124.38438pt.
-<artigo_item12_plausibilidade_resumo.png, id=47, 767.2665pt x 389.2944pt>
-File: artigo_item12_plausibilidade_resumo.png Graphic file (type png)
-<use artigo_item12_plausibilidade_resumo.png>
-Package pdftex.def Info: artigo_item12_plausibilidade_resumo.png  used on input line 516.
+<scripts/figuras/artigo_item12_plausibilidade_resumo.png, id=94, 767.2665pt x 389.2944pt>
+File: scripts/figuras/artigo_item12_plausibilidade_resumo.png Graphic file (type png)
+<use scripts/figuras/artigo_item12_plausibilidade_resumo.png>
+Package pdftex.def Info: scripts/figuras/artigo_item12_plausibilidade_resumo.png  used on input line 538.
 (pdftex.def)             Requested size: 233.3125pt x 118.37523pt.
-<artigo_extra_discretizacao.png, id=48, 707.5233pt x 376.7676pt>
-File: artigo_extra_discretizacao.png Graphic file (type png)
-<use artigo_extra_discretizacao.png>
-Package pdftex.def Info: artigo_extra_discretizacao.png  used on input line 528.
+<scripts/figuras/artigo_extra_discretizacao.png, id=95, 707.5233pt x 376.7676pt>
+File: scripts/figuras/artigo_extra_discretizacao.png Graphic file (type png)
+<use scripts/figuras/artigo_extra_discretizacao.png>
+Package pdftex.def Info: scripts/figuras/artigo_extra_discretizacao.png  used on input line 550.
 (pdftex.def)             Requested size: 233.3125pt x 124.2417pt.
-<artigo_simulacao_ruido_medicao.png, id=49, 693.3102pt x 522.5121pt>
-File: artigo_simulacao_ruido_medicao.png Graphic file (type png)
-<use artigo_simulacao_ruido_medicao.png>
-Package pdftex.def Info: artigo_simulacao_ruido_medicao.png  used on input line 540.
-(pdftex.def)             Requested size: 233.3125pt x 175.83394pt.
- [7 <./artigo_item10_robustez_ruido.png (PNG copy)> <./artigo_item11_transicoes_referencia.png (PNG copy)> <./artigo_item12_plausibilidade_resumo.png (PNG copy)> <./artigo_extra_discretizacao.png (PNG copy)> <./artigo_simulacao_ruido_medicao.png (PNG copy)>] (sbaconf.bbl
+ [7 <./scripts/figuras/artigo_item09_tradeoff_erro_esforco.png (PNG copy)> <./scripts/figuras/artigo_item10_robustez_ruido.png (PNG copy)> <./scripts/figuras/artigo_item11_transicoes_referencia.png (PNG copy)> <./scripts/figuras/artigo_item12_plausibilidade_resumo.png (PNG copy)> <./scripts/figuras/artigo_extra_discretizacao.png (PNG copy)>]
+<scripts/figuras/artigo_simulacao_ruido_medicao.pdf, id=100, 695.59875pt x 538.01pt>
+File: scripts/figuras/artigo_simulacao_ruido_medicao.pdf Graphic file (type pdf)
+<use scripts/figuras/artigo_simulacao_ruido_medicao.pdf>
+Package pdftex.def Info: scripts/figuras/artigo_simulacao_ruido_medicao.pdf  used on input line 560.
+(pdftex.def)             Requested size: 250.38434pt x 193.65881pt.
+ (sbaconf.bbl
 LaTeX Font Info:    Trying to load font information for T1+aett on input line 16.
  (C:\Users\uidq5744\AppData\Local\Programs\MiKTeX\tex/latex/ae\t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
-)) [8] (sbaconf.aux)
+) [8 <./scripts/figuras/artigo_simulacao_ruido_medicao.pdf>]) [9
+
+] (sbaconf.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 5675 strings out of 474479
- 95229 string characters out of 5742176
- 1946542 words of memory out of 5000000
- 27855 multiletter control sequences out of 15000+600000
- 577144 words of font info for 77 fonts, out of 8000000 for 9000
+ 5806 strings out of 474479
+ 99985 string characters out of 5742176
+ 1948542 words of memory out of 5000000
+ 27980 multiletter control sequences out of 15000+600000
+ 577796 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,8n,69p,1858b,410s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmb10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on sbaconf.pdf (8 pages, 3214017 bytes).
+ 61i,13n,71p,1824b,410s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmb10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on sbaconf.pdf (9 pages, 3319327 bytes).
 PDF statistics:
- 100 PDF objects out of 1000 (max. 8388607)
+ 220 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  91 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -5,44 +5,46 @@ Reallocating 'name_of_file' (item size: 1) to 9 items.
 The style file: ifacconf.bst
 Reallocating 'name_of_file' (item size: 1) to 9 items.
 Database file #1: ifacconf.bib
-You've used 14 entries,
+Warning--empty booktitle in Tian2024
+You've used 19 entries,
             2921 wiz_defined-function locations,
-            684 strings with 7962 characters,
-and the built_in function-call counts, 7595 in all, are:
-= -- 582
-> -- 316
-< -- 7
-+ -- 118
-- -- 102
-* -- 518
-:= -- 1221
-add.period$ -- 48
-call.type$ -- 14
-change.case$ -- 103
-chr.to.int$ -- 14
-cite$ -- 14
-duplicate$ -- 588
-empty$ -- 611
-format.name$ -- 134
-if$ -- 1498
+            722 strings with 9284 characters,
+and the built_in function-call counts, 11047 in all, are:
+= -- 881
+> -- 446
+< -- 10
++ -- 167
+- -- 144
+* -- 742
+:= -- 1727
+add.period$ -- 69
+call.type$ -- 19
+change.case$ -- 142
+chr.to.int$ -- 19
+cite$ -- 20
+duplicate$ -- 854
+empty$ -- 872
+format.name$ -- 193
+if$ -- 2229
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 126
-newline$ -- 85
-num.names$ -- 56
-pop$ -- 278
+missing$ -- 175
+newline$ -- 115
+num.names$ -- 76
+pop$ -- 386
 preamble$ -- 1
-purify$ -- 90
+purify$ -- 124
 quote$ -- 0
-skip$ -- 209
+skip$ -- 328
 stack$ -- 0
-substring$ -- 238
-swap$ -- 272
+substring$ -- 399
+swap$ -- 414
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 111
-warning$ -- 0
-while$ -- 47
+type$ -- 156
+warning$ -- 1
+while$ -- 70
 width$ -- 0
-write$ -- 192
+write$ -- 266
+(There was 1 warning)

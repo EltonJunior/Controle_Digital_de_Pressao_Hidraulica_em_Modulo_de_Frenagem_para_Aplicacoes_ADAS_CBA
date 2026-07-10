@@ -1,4 +1,4 @@
-\begin{thebibliography}{14}
+\begin{thebibliography}{19}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
@@ -44,6 +44,13 @@ Kapinski, J., Deshmukh, J.V., Jin, X., Ito, H., and Butts, K. (2016).
 \newblock \emph{IEEE Control Systems Magazine}, 36(6), 45--64.
 \newblock \doi{10.1109/MCS.2016.2602089}.
 
+\bibitem[{Kosicky and Rosinova(2022)}]{Kosicky2022}
+Kosicky, M. and Rosinova, D. (2022).
+\newblock Fuzzy controller for abs.
+\newblock \emph{Proceedings of the 31st International Conference on Cybernetics
+  and Informatics, K and I 2022}.
+\newblock \doi{10.1109/KI55792.2022.9925946}.
+
 \bibitem[{Lentin~Joseph(2022)}]{Lentin2022}
 Lentin~Joseph, A.K.M. (2022).
 \newblock \emph{Autonomous Driving and Advanced Driver-Assistance Systems
@@ -76,11 +83,40 @@ Oh, S.Y., Hwang, K.Y., Song, B.K., and Kim, S.I. (2022).
 \newblock \emph{IEEE Access}, 10, 61375--61384.
 \newblock \doi{10.1109/ACCESS.2022.3181616}.
 
+\bibitem[{Quan et~al.(2022)Quan, Long, Ngoc, and Tien}]{Quan2022}
+Quan, V.H., Long, L.T., Ngoc, N.A., and Tien, N.M. (2022).
+\newblock A comparison of the performance of anti-lock braking system (abs)
+  using fuzzy and pid controllers.
+\newblock \emph{2022 6th International Conference on Green Technology and
+  Sustainable Development (GTSD)}, 243--248.
+\newblock \doi{10.1109/GTSD54989.2022.9989395}.
+
 \bibitem[{Reif(2014)}]{Konrad2014}
 Reif, K. (2014).
 \newblock \emph{Brakes, Brake Control and Driver Assistance Systems Function,
   Regulation and Components Bosch Professional Automotive Information}.
 \newblock Springer.
+
+\bibitem[{Roxana and Ionut(2021)}]{Roxana2021}
+Roxana, R.B. and Ionut, M. (2021).
+\newblock Advanced control design for anti-lock braking systems.
+\newblock \emph{2021 9th International Conference on Modern Power Systems
+  (MPS)}, 1--6.
+\newblock \doi{10.1109/MPS52805.2021.9492667}.
+
+\bibitem[{Tian(2024)}]{Tian2024}
+Tian, J. (2024).
+\newblock Vehicle adaptive cruise control based on model predictive algorithm.
+\newblock 467--470. Institute of Electrical and Electronics Engineers Inc.
+\newblock \doi{10.1109/IRAC63143.2024.10871493}.
+
+\bibitem[{V et~al.(2020)V, V, G, K, and C}]{Dankan2020}
+V, D.G., V, P.K.M., G, N.P., K, M., and C, V.K.B. (2020).
+\newblock Dynamic analysis and control strategies of an anti-lock braking
+  system.
+\newblock \emph{2020 4th International Conference on Electronics, Communication
+  and Aerospace Technology (ICECA)}, 1677--1682.
+\newblock \doi{10.1109/ICECA49313.2020.9297642}.
 
 \bibitem[{Wang et~al.(2015)Wang, Shi, and Yu}]{WangBingbing2015}
 Wang, B., Shi, G., and Yu, L. (2015).

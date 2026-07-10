@@ -56,6 +56,7 @@ Tstop = max(Pw.Time);
 set(groot,'defaultLineLineWidth',1.6);
 set(groot,'defaultAxesFontSize',11);
 set(groot,'defaultAxesFontName','Times New Roman');
+set(groot,'defaultFigureRenderer','painters');
 
 fig = figure('Color','w','Position',[100 100 980 720]);
 tiledlayout(2,1,'TileSpacing','compact','Padding','compact');
@@ -76,8 +77,14 @@ grid on; xlabel('Tempo (s)'); ylabel('Comandos');
 legend('\omega_p','u_{in} (esc.)','u_{out} (esc.)','Location','best');
 xlim([0 Tstop]);
 
-%% Exportar PNG onde o LaTeX espera
-outPng = fullfile(pwd,'artigo_simulacao_ruido_medicao.png');
-exportgraphics(fig, outPng, 'Resolution', 300);
+%% Exportar PNG e PDF vetoriais onde o LaTeX espera
+scriptDir = fileparts(mfilename('fullpath'));
+outDir = fullfile(scriptDir,'figuras');
+if ~exist(outDir,'dir'), mkdir(outDir); end
+outPng = fullfile(outDir,'artigo_simulacao_ruido_medicao.png');
+outPdf = fullfile(outDir,'artigo_simulacao_ruido_medicao.pdf');
+exportgraphics(fig, outPng, 'Resolution', 600);
+exportgraphics(fig, outPdf, 'ContentType','vector');
 
 fprintf('OK: figura exportada: %s\n', outPng);
+fprintf('OK: figura vetorial exportada: %s\n', outPdf);

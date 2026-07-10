@@ -188,6 +188,7 @@ Tstop = max(Psup.Time);
 set(groot,'defaultLineLineWidth',1.6);
 set(groot,'defaultAxesFontSize',11);
 set(groot,'defaultAxesFontName','Times New Roman');
+set(groot,'defaultFigureRenderer','painters');
 
 fig = figure('Color','w','Position',[100 100 980 720]);
 tiledlayout(2,1,'TileSpacing','compact','Padding','compact');
@@ -216,16 +217,14 @@ ylim([ymin-5, ymax+5]);
 xlim([0 Tstop]);
 
 %% Exportar figuras
-outDir = fullfile(pwd,'figuras');
+scriptDir = fileparts(mfilename('fullpath'));
+outDir = fullfile(scriptDir,'figuras');
 if ~exist(outDir,'dir'), mkdir(outDir); end
 
 pdfPath = fullfile(outDir,'simulacao_comandos_e_pressao.pdf');
 pngPath = fullfile(outDir,'simulacao_comandos_e_pressao.png');
 exportgraphics(fig, pdfPath, 'ContentType','vector');
-exportgraphics(fig, pngPath, 'Resolution', 300);
-
-% Copiar para o diretório do artigo (onde o LaTeX espera o arquivo)
-copyfile(pngPath, fullfile(pwd,'simulacao_comandos_e_pressao.png'));
+exportgraphics(fig, pngPath, 'Resolution', 600);
 
 disp('OK: figuras exportadas em:');
 disp(outDir);
@@ -292,7 +291,7 @@ export_figure(fig1, outDir, 'artigo_item01_metricas_tracking');
 
 % Figura adicional (template ja usado) com anotacao de metricas em texto
 fig1b = figure('Color','w','Position',[80 80 1100 700]);
-tiledlayout(2,1,'TileSpacing','compact','Padding','compact');
+tiledlayout(3,1,'TileSpacing','compact','Padding','compact');
 
 nexttile;
 plot(t_vec, Pw_bar,'r','LineWidth',1.4); hold on;
@@ -555,8 +554,6 @@ function export_figure(figHandle, outDir, baseName)
       pngPath = fullfile(outDir, [baseName '.png']);
       exportgraphics(figHandle, pdfPath, 'ContentType','vector');
       exportgraphics(figHandle, pngPath, 'Resolution', 300);
-      % Copiar para o diretorio do artigo (onde o LaTeX espera o arquivo)
-      copyfile(pngPath, fullfile(pwd, [baseName '.png']));
 end
 
 function stepTbl = compute_step_metrics(t, r, y, alpha_rise, tol_frac)

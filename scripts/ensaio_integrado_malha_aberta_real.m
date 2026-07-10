@@ -98,6 +98,7 @@ Qout_ml_s  = Qout.Data;
 set(groot,'defaultLineLineWidth',1.6);
 set(groot,'defaultAxesFontSize',11);
 set(groot,'defaultAxesFontName','Times New Roman');
+set(groot,'defaultFigureRenderer','painters');
 
 fig = figure('Color','w','Position',[100 100 980 720]);
 tiledlayout(3,1,'TileSpacing','compact','Padding','compact');
@@ -137,16 +138,14 @@ ylim([-20 40]);
 xlim([0 Tstop]);
 
 %% Exportar figuras
-outDir = fullfile(pwd,'figuras');
+scriptDir = fileparts(mfilename('fullpath'));
+outDir = fullfile(scriptDir,'figuras');
 if ~exist(outDir,'dir'), mkdir(outDir); end
 
 pdfPath = fullfile(outDir,'artigo_ensaio_malha_aberta_integrado_real.pdf');
 pngPath = fullfile(outDir,'artigo_ensaio_malha_aberta_integrado_real.png');
 exportgraphics(fig, pdfPath, 'ContentType','vector');
-exportgraphics(fig, pngPath, 'Resolution', 300);
-
-% Copiar para o diretório do artigo (onde o LaTeX espera o arquivo)
-copyfile(pngPath, fullfile(pwd,'artigo_ensaio_malha_aberta_integrado_real.png'));
+exportgraphics(fig, pngPath, 'Resolution', 600);
 
 disp('OK: figuras exportadas em:');
 disp(outDir);

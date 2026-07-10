@@ -5,8 +5,16 @@
 %===============================================================================
 \documentclass[a4paper]{ifacconf}
 
-\usepackage{graphicx,amsmath,url}      % include this line if your document contains figures
+\usepackage{graphicx,amsmath,url,booktabs}      % include this line if your document contains figures
 \usepackage[round]{natbib}             % required for bibliography
+\graphicspath{{scripts/figuras/}}
+\makeatletter
+\def\input@path{{scripts/figuras/}}
+\makeatother
+\newcommand{\figwidth}{8.8cm}
+\newcommand{\figpdforpng}[1]{%
+  \IfFileExists{#1.pdf}{\includegraphics[width=\figwidth]{#1.pdf}}{\includegraphics[width=\figwidth]{#1.png}}%
+}
 %===============================================================================
 
 
@@ -103,7 +111,7 @@
          %A integração de funções de Sistemas Avançados de Assistência ao Condutor (ADAS) para controle longitudinal (por exemplo, Controle de Cruzeiro Adaptativo (ACC) e Frenagem Autônoma de Emergência (AEB)) com o sistema de freio demanda um atuador de pressão capaz de responder com previsibilidade, mesmo sob restrições físicas e incertezas do sistema eletro-hidráulico. Este artigo apresenta uma metodologia de modelagem e controle digital para o regulador de pressão por roda em um módulo hidráulico de sistema antibloqueio de freios e controle eletrônico de estabilidade (ABS/ESC) operando em frenagem ativa, tratando a referência de pressão como um sinal proveniente de um controlador de nível superior. A planta é representada por um modelo hidráulico não linear concentrado em duas pressões (suprimento e canal de roda), com leis de vazão baseadas em bomba e orifício. A partir de uma linearização local em regime de frenagem, obtém-se um modelo em espaço de estados discretizado por retenção de ordem zero (ZOH) para síntese de um controlador LQI em tempo discreto, acoplado a um observador discreto de Luenberger, com saturações e lógica discreta de válvulas (com histerese) compatíveis com a atuação típica do modulador. A abordagem é avaliada em MATLAB/Simulink, com ensaios de seguimento de referência em patamares, análise por métricas de desempenho e varredura de sensibilidade paramétrica para caracterizar robustez. Os resultados em simulação indicam viabilidade do seguimento de pressão com coerência de comandos frente às limitações de atuação, apoiando a continuidade rumo à implementação embarcada.
 
          %CBA
-         Este trabalho apresenta uma metodologia de modelagem e controle digital para a regulação de pressão de freio por roda utilizando um modulador hidráulico ABS/ESC operando em frenagem ativa. A planta é representada por um modelo hidráulico não linear concentrado, composto pelas pressões de suprimento e do canal de roda, pelas leis de vazão da bomba e por válvulas modeladas por orifício. Uma linearização local em torno de um ponto de operação de frenagem permite obter um modelo discreto em espaço de estados, utilizado no projeto de um controlador LQI em tempo discreto com ação integral, acoplado a um observador de Luenberger. Restrições de atuadores, histerese das válvulas e efeitos de saturação são incluídos para representar o comportamento realista do modulador. A abordagem é avaliada em MATLAB/Simulink por meio de testes de plausibilidade em malha aberta, seguimento de referência por degraus, análise de sensibilidade paramétrica, influência de ruído de medição e avaliação do esforço de controle sob saturação. Os resultados de simulação indicam seguimento consistente dentro dos limites físicos e comportamento dinâmico coerente, apoiando futura implementação embarcada e validação em bancada/HIL.
+         Este trabalho apresenta uma metodologia de modelagem e controle digital para a regulação de pressão de freio por roda utilizando um modulador hidráulico ABS/ESC operando em frenagem ativa. A planta é representada por um modelo hidráulico não linear concentrado, composto pelas pressões de suprimento e do canal de roda, pelas leis de vazão da bomba e por válvulas modeladas por orifício. Uma linearização local em torno de um ponto de operação de frenagem fornece um modelo discreto em espaço de estados usado no projeto de um controlador LQI em tempo discreto com ação integral, acoplado a um observador de Luenberger. Restrições de atuadores, histerese das válvulas e efeitos de saturação são incluídos para representar o comportamento realista do modulador. A abordagem é avaliada em MATLAB/Simulink por meio de testes de plausibilidade em malha aberta, seguimento de referência por degraus, análise de sensibilidade paramétrica, influência de ruído de medição e avaliação do esforço de controle sob saturação. Os resultados indicam rastreamento consistente dentro dos limites físicos, aumento moderado de ripple sob ruído de medição e sensibilidade controlada a variações paramétricas, o que reforça a pertinência do fluxo proposto para implementação embarcada e validação futura em bancada/HIL.
       \end{abstract}
 
       \selectlanguage{english}
@@ -118,7 +126,7 @@
          {\noindent\it Palavras-chave:}
          %frenagem ativa; controle digital; regulação de pressão hidráulica; LQI; observador de Luenberger; ADAS; MATLAB/Simulink.
          %CBA
-         Controle de pressão de freio hidráulico; Modulador hidráulico ABS/ESC; Controle LQI em tempo discreto; Observador de Luenberger; Modelagem hidráulica não linear; Frenagem ativa.
+         Controle de pressão; Modulador ABS/ESC; LQI discreto; Observador de Luenberger; Frenagem ativa.
       \end{keyword}
 
 
@@ -181,7 +189,7 @@ A frenagem automotiva permanece no centro das discussões sobre segurança veicu
 
 Sistemas Avançados de Assistência ao Condutor (ADAS) utilizam sensores e algoritmos para apoiar o controle longitudinal e lateral do veículo, o que inclui funções como Controle de Cruzeiro Adaptativo (ACC) e Frenagem Autônoma de Emergência (AEB) \cite{Lentin2022}. Nesses casos, a cadeia de controle tende a ser hierárquica: um módulo de alto nível opera uma desaceleração desejada (ou uma demanda equivalente de torque/força) e, a jusante, o sistema de frenagem deve converter essa solicitação em pressão hidráulica efetiva nas rodas. A qualidade dessa conversão não é um detalhe de implementação; ela influencia diretamente o conforto, a repetibilidade e a robustez do comportamento longitudinal, especialmente quando o veículo opera próximo a limites de atuação ou quando há incertezas e ruídos de medição.
 
-Nas arquiteturas atuais, o conjunto eletro-hidráulico associado às unidades de sistema antibloqueio de freios e controle eletrônico de estabilidade (ABS/ESC) -- bomba, válvulas e eletrônica -- pode atuar não apenas como modulador durante eventos de escorregamento, mas também como fonte/atuador de pressão em cenários de frenagem ativa. Do ponto de vista de modelagem e projeto de controle, isso traz um desafio concreto: a dinâmica hidráulica é intrinsecamente não linear, dependente de diferenças de pressão e de restrições de vazão, e a atuação é limitada por saturações físicas e pela natureza discreta de válvulas solenóides (tipicamente operando em estados aberto/fechado). Trabalhos recentes exploram tanto modelos concentrados e aplicações experimentais em unidades hidráulicas \cite{HouhuaJing2022,ZengYangHuang2023} quanto estratégias de coordenação e modulação de pressão \cite{Lv2014,ChenLv2017,PressureCoordinatedControl2023}. Ainda assim, ao observar uma implementação embarcada realista, permanece a necessidade de um fluxo de projeto que conecte, de forma rastreável, (i) um modelo hidráulico suficientemente simples para síntese, (ii) um regulador digital em tempo discreto, e (iii) um conjunto explícito de restrições de atuação e hipóteses de operação compatíveis com o uso do módulo ABS/ESC como atuador de frenagem ativa.
+Nas arquiteturas atuais, o conjunto eletro-hidráulico associado às unidades de sistema antibloqueio de freios e controle eletrônico de estabilidade (ABS/ESC) -- bomba, válvulas e eletrônica -- pode atuar não apenas como modulador durante eventos de escorregamento, mas também como fonte/atuador de pressão em cenários de frenagem ativa. Do ponto de vista de modelagem e projeto de controle, isso traz um desafio concreto: a dinâmica hidráulica é intrinsecamente não linear, dependente de diferenças de pressão e de restrições de vazão, e a atuação é limitada por saturações físicas e pela natureza discreta de válvulas solenóides (tipicamente operando em estados aberto/fechado). Trabalhos recentes exploram tanto modelos concentrados e aplicações experimentais em unidades hidráulicas \cite{HouhuaJing2022,Quan2022,Roxana2021,Dankan2020,Kosicky2022} quanto estratégias de coordenação e modulação de pressão \cite{Lv2014,ChenLv2017,PressureCoordinatedControl2023,Tian2024}. Ainda assim, ao observar uma implementação embarcada realista, permanece a necessidade de um fluxo de projeto que conecte, de forma rastreável, (i) um modelo hidráulico suficientemente simples para síntese, (ii) um regulador digital em tempo discreto, e (iii) um conjunto explícito de restrições de atuação e hipóteses de operação compatíveis com o uso do módulo ABS/ESC como atuador de frenagem ativa.
 
 Este artigo aborda esse recorte: controle digital de pressão hidráulica por roda (baixo nível), com referência proveniente de um controlador longitudinal de nível superior. A contribuição não é propor um novo paradigma de controle para frenagem, mas consolidar um encadeamento metodológico adequado à transição de \textit{model-in-the-loop} para etapas futuras de implementação embarcada e validação em bancada, alinhado a práticas de verificação orientadas por simulação em sistemas de controle embarcados \cite{KapinskiJamesDeshmukh2016}.
 
@@ -199,7 +207,7 @@ Para integrar o regulador de pressão com uma função longitudinal de nível su
    P_{\mathrm{ref}}(t) = \frac{m}{A_c}\,\max\big(-a_{\mathrm{ego}}(t),\,0\big),
    \label{eq:aref_to_pref}
 \end{equation}
-em que $m$ representa a massa equivalente do veículo e $A_c$ agrega, em um único ganho, efeitos de repartição, conversão pressão--força e eficiência do conjunto de freio. O uso desse mapeamento tem um propósito metodológico: isolar a dinâmica do atuador hidráulico sob controle e discutir desempenho e restrições sem confundir o resultado com a qualidade de um modelo longitudinal completo \cite{Lentin2022}.
+em que $m$ representa a massa equivalente do veículo e $A_c$ agrega, em um único ganho, efeitos de repartição, conversão pressão--força e eficiência do conjunto de freio. O termo $a_{\mathrm{ego}}$ denota a desaceleração longitudinal do veículo, medida no referencial do próprio veículo. O uso desse mapeamento tem um propósito metodológico: isolar a dinâmica do atuador hidráulico sob controle e discutir desempenho e restrições sem confundir o resultado com a qualidade de um modelo longitudinal completo \cite{Lentin2022}.
 
 \subsection{Modelo hidráulico não linear concentrado (duas pressões)}
 A planta é modelada por uma representação concentrada em duas regiões compressíveis: a pressão de suprimento/manifold $P_{sup}$ e a pressão no canal de roda $P_w$, em linha com abordagens comuns na literatura para projeto e validação \cite{HouhuaJing2022,Lv2014,ZengYangHuang2023}. O vetor de estados e o vetor de comandos são definidos como:
@@ -264,7 +272,7 @@ Nos ensaios, adotam-se limites de atuação coerentes com um modulador ABS/ESC e
 A estratégia de controle proposta combina: (i) um regulador em espaço de estados para a variável contínua $\omega_p$ e (ii) uma lógica discreta para $u_{in}$ e $u_{out}$, de modo a refletir a natureza de atuação do modulador em arquiteturas convencionais. A síntese é feita em tempo discreto para preservar coerência com implementação embarcada \cite{FranklinPowellWorkman1998,Ogata1997}.
 
 \subsection{Linearização local e discretização}
-Como a planta \eqref{eq:pressure_sup}--\eqref{eq:qout} é não linear (principalmente pela dependência em $\sqrt{\Delta P}$), adota-se uma linearização local em torno de um ponto de operação de frenagem $(x_0,u_0)$ que satisfaça $P_{sup,0}>P_{w,0}>P_{ret}$ e diferenciais de pressão positivos nas válvulas. A partir disso, obtém-se um modelo linear incremental no formato:
+Como a planta representada pelas Equações \eqref{eq:pressure_sup} a \eqref{eq:qout} é não linear (principalmente pela dependência em $\sqrt{\Delta P}$), adota-se uma linearização local em torno de um ponto de operação de frenagem $(x_0,u_0)$ escolhido em uma condição representativa de frenagem ativa, com $P_{sup,0}>P_{w,0}>P_{ret}$ e diferencial de pressão positivo nas válvulas. A escolha do ponto de operação foi guiada por uma condição de pressão compatível com a faixa de atuação esperada do modulador e por uma vizinhança suficientemente pequena para manter a validade local da aproximação linear. A partir disso, obtém-se um modelo linear incremental no formato:
 \begin{equation}
    \delta \dot{x}(t)=A\,\delta x(t)+B\,\delta u(t),
    \qquad
@@ -274,7 +282,7 @@ Como a planta \eqref{eq:pressure_sup}--\eqref{eq:qout} é não linear (principal
 com $y(t)=P_w(t)$ como variável controlada. Para síntese digital, o modelo é discretizado com retenção de ordem zero (ZOH), resultando em $(A_d,B_d,C_d)$.
 
 \subsection{Controlador LQI e tratamento de saturações}
-Para garantir erro estacionário nulo no seguimento de patamares de referência, incorpora-se ação integral sobre o erro $e(k)=P_{\mathrm{ref}}(k)-P_w(k)$, obtendo uma formulação LQI. Em termos conceituais, o regulador resolve um problema de minimização quadrática em tempo discreto e gera a lei de controle:
+Para garantir erro estacionário nulo no seguimento de patamares de referência, incorpora-se ação integral sobre o erro $e(k)=P_{\mathrm{ref}}(k)-P_w(k)$, obtendo uma formulação LQI. Os pesos do problema quadrático foram escolhidos para equilibrar rastreamento rápido e esforço moderado de controle, de modo a reduzir saturações excessivas em $\omega_p$ sem comprometer o erro em regime. O ganho do observador foi ajustado com pólos mais rápidos que a dinâmica nominal da planta, porém suficientemente amortecidos para evitar amplificação de ruído de medição, em consonância com o período de amostragem adotado. Em termos conceituais, o regulador resolve um problema de minimização quadrática em tempo discreto e gera a lei de controle:
 \begin{equation}
    \omega_p(k) = \mathrm{sat}\big(\omega_{p,\min},\omega_{p,\max},\; -K_x\,\hat{x}(k)-K_i\,x_i(k)\big),
    \label{eq:lqi_control}
@@ -339,19 +347,33 @@ Em malha aberta (Figura~\ref{fig:artigo_ensaio_malha_aberta_integrado_real}), ob
 
 \begin{figure}
    \begin{center}
-      \includegraphics[width=8.2cm]{artigo_ensaio_malha_aberta_integrado_real.png}    % The printed column width is 8.4 cm.
+      \figpdforpng{artigo_ensaio_malha_aberta_integrado_real}
       \caption{Malha aberta: pressurização, retenção e alívio.}
       \label{fig:artigo_ensaio_malha_aberta_integrado_real}
    \end{center}
 \end{figure}
 
-Em malha fechada (Figura~\ref{fig:simulacao_comandos_e_pressao}), a arquitetura LQI+observador rastreia referências em patamares no modelo não linear com comandos compatíveis com as restrições impostas a $\omega_p$, $u_{in}$ e $u_{out}$. A leitura conjunta de pressão e atuação orienta a discussão de seguimento, saturações e efeitos de não linearidade (dependência das vazões em $\Delta P$), incluindo possíveis assimetrias entre pressurização e alívio \cite{Lv2014,ChenLv2017}.
+Em malha fechada (Figura~\ref{fig:simulacao_comandos_e_pressao}), a arquitetura LQI+observador rastreia referências em patamares no modelo não linear com comandos compatíveis com as restrições impostas a $\omega_p$, $u_{in}$ e $u_{out}$. Para condensar os destaques do cenário nominal, a Tabela~\ref{tab:resumo_desempenho} resume os principais compromissos observados no ensaio em malha fechada, enquanto a leitura conjunta de pressão e atuação orienta a discussão de seguimento, saturações e efeitos de não linearidade (dependência das vazões em $\Delta P$), incluindo possíveis assimetrias entre pressurização e alívio \cite{Lv2014,ChenLv2017}.
 
-
+\begin{table}[t]
+   \centering
+   \caption{Resumo dos resultados em malha fechada.}
+   \label{tab:resumo_desempenho}
+   \begin{tabular}{p{3.6cm}p{4.1cm}}
+      \toprule
+      Cenário                   & Destaque principal                                                                                                                \\
+      \midrule
+      Seguimento por degraus    & O controlador acompanha os patamares de referência com erro reduzido em regime e transitórios dominados pela dinâmica hidráulica. \\
+      Saturação e esforço       & O comando de $\omega_p$ atinge limites de atuação em transições agressivas, mas sem perda de coerência do comportamento.          \\
+      Ruído de medição          & O observador preserva o rastreamento, com aumento moderado de ripple e esforço de controle.                                       \\
+      Sensibilidade paramétrica & O desempenho permanece aceitável para variações moderadas de $\beta$, $V_w$ e $A_{in,\max}$.                                      \\
+      \bottomrule
+   \end{tabular}
+\end{table}
 
 \begin{figure}
    \begin{center}
-      \includegraphics[width=8.2cm]{simulacao_comandos_e_pressao.png}    % The printed column width is 8.4 cm.
+      \figpdforpng{simulacao_comandos_e_pressao}
       \caption{Malha fechada: pressão e comandos de atuação.}
       \label{fig:simulacao_comandos_e_pressao}
    \end{center}
@@ -530,10 +552,8 @@ Em malha fechada (Figura~\ref{fig:simulacao_comandos_e_pressao}), a arquitetura 
 \IfFileExists{artigo_simulacao_ruido_medicao.png}{%
    \begin{figure}
       \begin{center}
-         \includegraphics[width=8.2cm]{artigo_simulacao_ruido_medicao.png}    % The printed column width is 8.4 cm.
-         \caption{Malha fechada com ruído na medição de $P_w$.}
-         \label{fig:artigo_simulacao_ruido_medicao}
-      \end{center}
+         \figpdforpng{artigo_simulacao_ruido_medicao}         \caption{Malha fechada com ruído na medição de $P_w$.}
+         \label{fig:artigo_simulacao_ruido_medicao}      \end{center}
    \end{figure}
 
    A Figura~\ref{fig:artigo_simulacao_ruido_medicao} ilustra, no tempo, o impacto do ruído de medição na trajetória de seguimento. Observa-se aumento de flutuações em torno dos patamares (\textit{ripple}), enquanto a capacidade de rastreamento é preservada no cenário avaliado, em consonância com a síntese agregada apresentada na Figura~\ref{fig:artigo_item10_robustez_ruido}.
@@ -584,3 +604,4 @@ Como limitações, o estudo não pretende representar um veículo completo (din�
 
 %\end{thebibliography}
 \end{document}
+
