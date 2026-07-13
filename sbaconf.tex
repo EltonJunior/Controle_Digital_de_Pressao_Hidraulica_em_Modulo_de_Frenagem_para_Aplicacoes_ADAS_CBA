@@ -11,9 +11,9 @@
 \makeatletter
 \def\input@path{{scripts/figuras/}}
 \makeatother
-\newcommand{\figwidth}{8.8cm}
+\newcommand{\figwidth}{8.2cm}
 \newcommand{\figpdforpng}[1]{%
-  \IfFileExists{#1.pdf}{\includegraphics[width=\figwidth]{#1.pdf}}{\includegraphics[width=\figwidth]{#1.png}}%
+  \IfFileExists{#1.pdf}{\includegraphics[width=\figwidth]{#1.pdf}}{\IfFileExists{#1.png}{\includegraphics[width=\figwidth]{#1.png}}{}}%
 }
 %===============================================================================
 
@@ -191,9 +191,9 @@ Sistemas Avançados de Assistência ao Condutor (ADAS) utilizam sensores e algor
 
 Nas arquiteturas atuais, o conjunto eletro-hidráulico associado às unidades de sistema antibloqueio de freios e controle eletrônico de estabilidade (ABS/ESC) -- bomba, válvulas e eletrônica -- pode atuar não apenas como modulador durante eventos de escorregamento, mas também como fonte/atuador de pressão em cenários de frenagem ativa. Do ponto de vista de modelagem e projeto de controle, isso traz um desafio concreto: a dinâmica hidráulica é intrinsecamente não linear, dependente de diferenças de pressão e de restrições de vazão, e a atuação é limitada por saturações físicas e pela natureza discreta de válvulas solenóides (tipicamente operando em estados aberto/fechado). Trabalhos recentes exploram tanto modelos concentrados e aplicações experimentais em unidades hidráulicas \cite{HouhuaJing2022,Quan2022,Roxana2021,Dankan2020,Kosicky2022} quanto estratégias de coordenação e modulação de pressão \cite{Lv2014,ChenLv2017,PressureCoordinatedControl2023,Tian2024}. Ainda assim, ao observar uma implementação embarcada realista, permanece a necessidade de um fluxo de projeto que conecte, de forma rastreável, (i) um modelo hidráulico suficientemente simples para síntese, (ii) um regulador digital em tempo discreto, e (iii) um conjunto explícito de restrições de atuação e hipóteses de operação compatíveis com o uso do módulo ABS/ESC como atuador de frenagem ativa.
 
-Este artigo aborda esse recorte: controle digital de pressão hidráulica por roda (baixo nível), com referência proveniente de um controlador longitudinal de nível superior. A contribuição não é propor um novo paradigma de controle para frenagem, mas consolidar um encadeamento metodológico adequado à transição de \textit{model-in-the-loop} para etapas futuras de implementação embarcada e validação em bancada, alinhado a práticas de verificação orientadas por simulação em sistemas de controle embarcados \cite{KapinskiJamesDeshmukh2016}.
+Este artigo aborda esse recorte: controle digital de pressão hidráulica por roda em um módulo hidráulico ABS/ESC de baixo nível, com referência proveniente de um controlador longitudinal de nível superior. A contribuição não é propor um novo paradigma de controle para frenagem, mas consolidar um encadeamento metodológico adequado à transição de \textit{model-in-the-loop} para etapas futuras de implementação embarcada e validação em bancada, mantendo o estudo restrito ao subsistema de pressão hidráulica e à sua avaliação em simulação \cite{KapinskiJamesDeshmukh2016}.
 
-O objetivo do trabalho é projetar e avaliar, em simulação, uma estratégia de seguimento de referência de pressão por roda utilizando o módulo hidráulico (ABS/ESC) como atuador, considerando não linearidades hidráulicas e limitações físicas de atuação. Para isso, emprega-se um modelo hidráulico não linear concentrado em duas pressões (suprimento e canal de roda), linearização local em torno de um ponto de operação de frenagem e síntese de um controlador discreto em espaço de estados do tipo LQI, acoplado a um observador de Luenberger em tempo discreto. As restrições de atuação (saturações) e a lógica discreta de válvulas são incorporadas para manter coerência com o funcionamento esperado do modulador. A avaliação em MATLAB/Simulink utiliza ensaios de seguimento de referência e análise de sensibilidade paramétrica, de modo a organizar a discussão em termos de desempenho e esforço de atuação, sem extrapolar para conclusões experimentais fora do escopo simulado.
+O objetivo do trabalho é projetar e avaliar, em simulação, uma estratégia de seguimento de referência de pressão por roda em um módulo hidráulico ABS/ESC, tratado aqui como atuador de pressão, considerando não linearidades hidráulicas e limitações físicas de atuação. Para isso, emprega-se um modelo hidráulico não linear concentrado em duas pressões (suprimento e canal de roda), linearização local em torno de um ponto de operação de frenagem e síntese de um controlador discreto em espaço de estados do tipo LQI, acoplado a um observador de Luenberger em tempo discreto. As restrições de atuação (saturações) e a lógica discreta de válvulas são incorporadas para manter coerência com o funcionamento esperado do modulador. A avaliação em MATLAB/Simulink utiliza ensaios de seguimento de referência e análise de sensibilidade paramétrica, de modo a organizar a discussão em termos de desempenho e esforço de atuação, sem extrapolar para conclusões experimentais fora do escopo simulado.
 
 O artigo está organizado da seguinte forma: a Seção~\ref{sec:modelagem} descreve o modelo hidráulico e as hipóteses de atuação; a Seção~\ref{sec:controle} apresenta a linearização, discretização e o projeto do regulador LQI e do observador; a Seção~\ref{sec:simulacao} apresenta os cenários de simulação e os critérios de avaliação; por fim, a Seção~\ref{sec:resultados} discute os resultados e aponta continuidades naturais, incluindo a implementação embarcada e a validação em bancada.
 
@@ -255,7 +255,7 @@ A Figura~\ref{fig:modulo_2P_malha_aberta} apresenta um diagrama esquemático do 
 \IfFileExists{modulo_2P_malha_aberta.png}{%
    \begin{figure}
       \begin{center}
-         \includegraphics[width=8.2cm]{modulo_2P_malha_aberta.png}
+         \figpdforpng{modulo_2P_malha_aberta}
          \caption{Circuito hidráulico: modelo concentrado em duas pressões.}
          \label{fig:modulo_2P_malha_aberta}
       \end{center}
@@ -263,7 +263,7 @@ A Figura~\ref{fig:modulo_2P_malha_aberta} apresenta um diagrama esquemático do 
 
 
 \subsection{Hipóteses de atuação e restrições}
-O foco é o seguimento de referência de $P_w$ sob restrições físicas típicas do atuador: limites de $\omega_p$, de abertura efetiva das válvulas e faixa plausível de pressão. Além disso, por se tratar de um sistema sujeito a instrumentação limitada e incertezas de medição, considera-se a estimação de estados como parte da arquitetura de controle, uma vez que torna o controle mais preciso e robusto.
+O foco é o seguimento de referência de $P_w$ sob restrições físicas típicas do atuador: limites de $\omega_p$, de abertura efetiva das válvulas e faixa plausível de pressão. Além disso, por se tratar de um sistema sujeito a instrumentação limitada e incertezas de medição, considera-se a estimação de estados como parte da arquitetura de controle, uma vez que auxilia a reduzir o efeito de ruído na lei de controle e fornece estados necessários ao regulador, ainda que sem garantia formal de robustez frente a incertezas paramétricas.
 
 Nos ensaios, adotam-se limites de atuação coerentes com um modulador ABS/ESC em frenagem ativa, em particular $P_{sup,\max}=100\,\mathrm{bar}$ e $\omega_{p,\max}=100\,\mathrm{rad/s}$, além de comandos discretos $u_{in},u_{out}\in\{0,1\}$.
 
@@ -282,7 +282,7 @@ Como a planta representada pelas Equações \eqref{eq:pressure_sup} a \eqref{eq:
 com $y(t)=P_w(t)$ como variável controlada. Para síntese digital, o modelo é discretizado com retenção de ordem zero (ZOH), resultando em $(A_d,B_d,C_d)$.
 
 \subsection{Controlador LQI e tratamento de saturações}
-Para garantir erro estacionário nulo no seguimento de patamares de referência, incorpora-se ação integral sobre o erro $e(k)=P_{\mathrm{ref}}(k)-P_w(k)$, obtendo uma formulação LQI. Os pesos do problema quadrático foram escolhidos para equilibrar rastreamento rápido e esforço moderado de controle, de modo a reduzir saturações excessivas em $\omega_p$ sem comprometer o erro em regime. O ganho do observador foi ajustado com pólos mais rápidos que a dinâmica nominal da planta, porém suficientemente amortecidos para evitar amplificação de ruído de medição, em consonância com o período de amostragem adotado. Em termos conceituais, o regulador resolve um problema de minimização quadrática em tempo discreto e gera a lei de controle:
+Para garantir erro estacionário nulo no seguimento de patamares de referência, incorpora-se ação integral sobre o erro $e(k)=P_{\mathrm{ref}}(k)-P_w(k)$, obtendo uma formulação LQI. Os pesos do problema quadrático foram escolhidos para equilibrar rastreamento rápido e esforço moderado de controle, de modo a reduzir saturações excessivas em $\omega_p$ sem comprometer o erro em regime. O ganho do observador foi ajustado para fornecer uma estimação suficientemente rápida dos estados necessários ao regulador, reduzindo a influência do ruído de medição sem pretender garantir robustez formal frente a grandes incertezas paramétricas, em consonância com o período de amostragem adotado. Em termos conceituais, o regulador resolve um problema de minimização quadrática em tempo discreto e gera a lei de controle:
 \begin{equation}
    \omega_p(k) = \mathrm{sat}\big(\omega_{p,\min},\omega_{p,\max},\; -K_x\,\hat{x}(k)-K_i\,x_i(k)\big),
    \label{eq:lqi_control}
@@ -295,7 +295,7 @@ Como o modelo possui mais estados do que medições diretas, utiliza-se um obser
    \hat{x}(k+1)=A_d\hat{x}(k)+B_d u(k)+L\big(y(k)-C_d\hat{x}(k)\big),
    \label{eq:luenberger}
 \end{equation}
-onde $L$ é escolhido para garantir dinâmica de estimação suficientemente rápida e robusta ao ruído de medição, dentro das limitações do período de amostragem.
+onde $L$ é escolhido para garantir dinâmica de estimação suficientemente rápida e reduzir a influência de ruído de medição, dentro das limitações do período de amostragem.
 
 \subsection{Lógica discreta para válvulas}
 As válvulas são comandadas por uma lógica simples baseada no erro de seguimento, com histerese para evitar comutação excessiva na presença de ruído e discretização:
@@ -309,6 +309,29 @@ Esse arranjo busca representar, de modo controlável, os três modos clássicos 
 \section{Cenários de simulação e critérios de avaliação}
 \label{sec:simulacao}
 A avaliação em simulação considera ensaios em malha aberta e em malha fechada. A malha aberta tem caráter de verificação de plausibilidade do modelo e exercita os três modos típicos do canal hidráulico (pressurizar, reter e aliviar). A malha fechada permite discutir seguimento de referência e esforço de atuação sob saturações. Para facilitar a leitura, as pressões são apresentadas em $\mathrm{bar}$ nas figuras.
+
+Os valores nominais adotados nas simulações são resumidos na Tabela~\ref{tab:parametros_simulacao}, que descreve os principais parâmetros físicos, o ponto de operação empregado na linearização e a taxa de amostragem do regulador discreto.
+
+\begin{table}[t]
+   \centering
+   \caption{Parâmetros nominais adotados nas simulações.}
+   \label{tab:parametros_simulacao}
+   \begin{tabular}{lc}
+      \toprule
+      Parâmetro                            & Valor nominal                    \\
+      \midrule
+      $\beta$ (módulo volumétrico efetivo) & $1.5\times 10^{9}$~Pa            \\
+      $\rho$ (massa específica do fluido)  & $850~\mathrm{kg\,m^{-3}}$        \\
+      $P_{ret}$                            & $1.0\times 10^{5}$~Pa            \\
+      $V_{sup}$                            & $6.0\times 10^{-5}~\mathrm{m^3}$ \\
+      $V_w$                                & $1.0\times 10^{-5}~\mathrm{m^3}$ \\
+      $P_{w,0}$ (ponto de linearização)    & $10$~bar                         \\
+      $P_{sup,0}$ (ponto de linearização)  & $15$~bar                         \\
+      $T_s$                                & $1.0\times 10^{-4}$~s            \\
+      $\omega_{p,\max}$                    & $100~\mathrm{rad\,s^{-1}}$       \\
+      \bottomrule
+   \end{tabular}
+\end{table}
 
 Para discutir sensibilidade a ruído de medição, considera-se o caso em que a pressão medida e disponibilizada ao observador é modelada por:
 \begin{equation}
@@ -324,7 +347,7 @@ A Figura~\ref{fig:modulo_2P_malha_fechada} apresenta o modelo Simulink utilizado
 \IfFileExists{modulo_2P_malha_fechada.png}{%
    \begin{figure}
       \begin{center}
-         \includegraphics[width=8.2cm]{modulo_2P_malha_fechada.png}
+         \figpdforpng{modulo_2P_malha_fechada}
          \caption{Modelo Simulink dos ensaios (planta, controlador e lógica de válvulas).}
          \label{fig:modulo_2P_malha_fechada}
       \end{center}
@@ -353,7 +376,7 @@ Em malha aberta (Figura~\ref{fig:artigo_ensaio_malha_aberta_integrado_real}), ob
    \end{center}
 \end{figure}
 
-Em malha fechada (Figura~\ref{fig:simulacao_comandos_e_pressao}), a arquitetura LQI+observador rastreia referências em patamares no modelo não linear com comandos compatíveis com as restrições impostas a $\omega_p$, $u_{in}$ e $u_{out}$. Para condensar os destaques do cenário nominal, a Tabela~\ref{tab:resumo_desempenho} resume os principais compromissos observados no ensaio em malha fechada, enquanto a leitura conjunta de pressão e atuação orienta a discussão de seguimento, saturações e efeitos de não linearidade (dependência das vazões em $\Delta P$), incluindo possíveis assimetrias entre pressurização e alívio \cite{Lv2014,ChenLv2017}.
+Em malha fechada (Figura~\ref{fig:simulacao_comandos_e_pressao}), a arquitetura LQI+observador rastreia referências em patamares no modelo não linear com comandos compatíveis com as restrições impostas a $\omega_p$, $u_{in}$ e $u_{out}$. No cenário nominal, o erro RMS global ao longo da trajetória de 3~s foi de 3.68~bar, enquanto o comando de $\omega_p$ atingiu 1500~rad/s nas transições mais agressivas. Para condensar os destaques do cenário nominal, a Tabela~\ref{tab:resumo_desempenho} resume os principais compromissos observados no ensaio em malha fechada, enquanto a leitura conjunta de pressão e atuação orienta a discussão de seguimento, saturações e efeitos de não linearidade (dependência das vazões em $\Delta P$), incluindo possíveis assimetrias entre pressurização e alívio \cite{Lv2014,ChenLv2017}.
 
 \begin{table}[t]
    \centering
@@ -361,12 +384,12 @@ Em malha fechada (Figura~\ref{fig:simulacao_comandos_e_pressao}), a arquitetura 
    \label{tab:resumo_desempenho}
    \begin{tabular}{p{3.6cm}p{4.1cm}}
       \toprule
-      Cenário                   & Destaque principal                                                                                                                \\
+      Cenário                   & Destaque principal                                                                                                            \\
       \midrule
-      Seguimento por degraus    & O controlador acompanha os patamares de referência com erro reduzido em regime e transitórios dominados pela dinâmica hidráulica. \\
-      Saturação e esforço       & O comando de $\omega_p$ atinge limites de atuação em transições agressivas, mas sem perda de coerência do comportamento.          \\
-      Ruído de medição          & O observador preserva o rastreamento, com aumento moderado de ripple e esforço de controle.                                       \\
-      Sensibilidade paramétrica & O desempenho permanece aceitável para variações moderadas de $\beta$, $V_w$ e $A_{in,\max}$.                                      \\
+      Seguimento por degraus    & Erro RMS global de 3.68~bar no cenário nominal; RMSE por degrau entre 0.84 e 7.60~bar, com sobressinal entre 1.77\% e 7.26\%. \\
+      Saturação e esforço       & O comando de $\omega_p$ atinge 1500~rad/s em transições agressivas, sem perda de coerência do comportamento.                  \\
+      Ruído de medição          & O observador preserva o rastreamento, com aumento de ripple e esforço de controle em relação ao caso nominal.                 \\
+      Sensibilidade paramétrica & O desempenho permanece aceitável para variações moderadas de $\beta$, $V_w$ e $A_{in,\max}$, sem degradação abrupta.          \\
       \bottomrule
    \end{tabular}
 \end{table}
@@ -382,17 +405,17 @@ Em malha fechada (Figura~\ref{fig:simulacao_comandos_e_pressao}), a arquitetura 
 \IfFileExists{artigo_item01_metricas_tracking.png}{%
    \begin{figure}
       \begin{center}
-         \includegraphics[width=8.2cm]{artigo_item01_metricas_tracking.png}
+         \figpdforpng{artigo_item01_metricas_tracking}
          \caption{Seguimento por degraus: resposta e erro.}
          \label{fig:artigo_item01_metricas_tracking}
       \end{center}
    \end{figure}
 
-   A Figura~\ref{fig:artigo_item01_metricas_tracking} apresenta o seguimento de referência por múltiplos degraus. Observa-se que os maiores desvios concentram-se nos instantes de transição, enquanto em regime o erro se mantém reduzido, o que é consistente com a atuação do LQI com observador.
+   A Figura~\ref{fig:artigo_item01_metricas_tracking} apresenta o seguimento de referência por múltiplos degraus. No ensaio nominal, o maior RMSE por degrau ocorreu na transição 0$\rightarrow$50~bar, com 7.60~bar, enquanto os demais trechos ficaram entre 0.84 e 3.48~bar. O sobressinal foi pequeno, entre 1.77\% e 7.26\%, e os tempos de subida de 10--90\% permaneceram na ordem de 0.6--2.9~ms; para os patamares centrais, a acomodação em 2\% ocorreu em aproximadamente 0.26--0.49~s.
 
    \begin{figure}
       \begin{center}
-         \includegraphics[width=8.2cm]{artigo_item01_metricas_desempenho.png}
+         \figpdforpng{artigo_item01_metricas_desempenho}
          \caption{Métricas globais e por degrau do seguimento.}
          \label{fig:artigo_item01_metricas_desempenho}
       \end{center}
@@ -404,19 +427,19 @@ Em malha fechada (Figura~\ref{fig:simulacao_comandos_e_pressao}), a arquitetura 
 \IfFileExists{artigo_item02_dpdt_saturacao.png}{%
    \begin{figure}
       \begin{center}
-         \includegraphics[width=8.2cm]{artigo_item02_dpdt_saturacao.png}
+         \figpdforpng{artigo_item02_dpdt_saturacao}
          \caption{Taxas $\mathrm{d}P/\mathrm{d}t$ e saturação do comando.}
          \label{fig:artigo_item02_dpdt_saturacao}
       \end{center}
    \end{figure}
 
-   A Figura~\ref{fig:artigo_item02_dpdt_saturacao} explicita limites dinâmicos do atuador ao relacionar taxas $\mathrm{d}P/\mathrm{d}t$ e saturação de comando. Observa-se que, mesmo próximo ao limite superior de atuação, os picos de $\left|\mathrm{d}P_w/\mathrm{d}t\right|$ permanecem confinados, indicando um teto imposto pela dinâmica hidráulica (dependência em $\Delta P$ e $\beta/V$), e não apenas pelo esforço do regulador.
+   A Figura~\ref{fig:artigo_item02_dpdt_saturacao} explicita limites dinâmicos do atuador ao relacionar taxas $\mathrm{d}P/\mathrm{d}t$ e saturação de comando. O comando de $\omega_p$ atingiu 1500~rad/s durante as transições mais agressivas, e os picos de $\left|\mathrm{d}P_w/\mathrm{d}t\right|$ permaneceram confinados pela dinâmica hidráulica mesmo sob esse limite, o que é coerente com a dependência das vazões em $\Delta P$ e com a relação $\beta/V$ do modelo.
 }{ }
 
 \IfFileExists{artigo_item03_assimetria_subida_descida.png}{%
    \begin{figure}
       \begin{center}
-         \includegraphics[width=8.2cm]{artigo_item03_assimetria_subida_descida.png}
+         \figpdforpng{artigo_item03_assimetria_subida_descida}
          \caption{Pressurização vs. alívio: resposta e comandos.}
          \label{fig:artigo_item03_assimetria_subida_descida}
       \end{center}
@@ -428,7 +451,7 @@ Em malha fechada (Figura~\ref{fig:simulacao_comandos_e_pressao}), a arquitetura 
 \IfFileExists{artigo_item04_ripple_fft.png}{%
    \begin{figure}
       \begin{center}
-         \includegraphics[width=8.2cm]{artigo_item04_ripple_fft.png}
+         \figpdforpng{artigo_item04_ripple_fft}
          \caption{Ondulação em regime: erro no tempo e espectro.}
          \label{fig:artigo_item04_ripple_fft}
       \end{center}
@@ -440,7 +463,7 @@ Em malha fechada (Figura~\ref{fig:simulacao_comandos_e_pressao}), a arquitetura 
 \IfFileExists{artigo_item05_validacao_linearizacao.png}{%
    \begin{figure}
       \begin{center}
-         \includegraphics[width=8.2cm]{artigo_item05_validacao_linearizacao.png}
+         \figpdforpng{artigo_item05_validacao_linearizacao}
          \caption{Planta não linear vs. modelo linearizado (janela de operação).}
          \label{fig:artigo_item05_validacao_linearizacao}
       \end{center}
@@ -452,7 +475,7 @@ Em malha fechada (Figura~\ref{fig:simulacao_comandos_e_pressao}), a arquitetura 
 \IfFileExists{artigo_item06_sensibilidade_parametrica.png}{%
    \begin{figure}
       \begin{center}
-         \includegraphics[width=8.2cm]{artigo_item06_sensibilidade_parametrica.png}
+         \figpdforpng{artigo_item06_sensibilidade_parametrica}
          \caption{Sensibilidade paramétrica: métricas de erro e esforço.}
          \label{fig:artigo_item06_sensibilidade_parametrica}
       \end{center}
@@ -461,34 +484,10 @@ Em malha fechada (Figura~\ref{fig:simulacao_comandos_e_pressao}), a arquitetura 
    A Figura~\ref{fig:artigo_item06_sensibilidade_parametrica} discute robustez por variação paramétrica em torno do caso nominal, focalizando parâmetros com interpretação física direta ($\beta$, $V_w$ e $A_{in,\max}$). Na faixa avaliada, as métricas agregadas de erro RMS e esforço RMS apresentam variação limitada, sugerindo baixa sensibilidade do seguimento a perturbações moderadas nesses parâmetros.
 }{ }
 
-\IfFileExists{artigo_item07_atrasos_tempos.png}{%
-   \begin{figure}
-      \begin{center}
-         \includegraphics[width=8.2cm]{artigo_item07_atrasos_tempos.png}
-         \caption{Atraso e tempo de subida por degrau.}
-         \label{fig:artigo_item07_atrasos_tempos}
-      \end{center}
-   \end{figure}
-
-   A Figura~\ref{fig:artigo_item07_atrasos_tempos} organiza atrasos e tempos característicos por degrau, fornecendo uma visão compacta de ``largura de banda'' observada no canal de pressão. Esses indicadores são úteis para diferenciar limitações do atuador hidráulico de efeitos de discretização e de estimação em tempo discreto.
-}{ }
-
-\IfFileExists{artigo_item08_mapa_comando_pressao.png}{%
-   \begin{figure}
-      \begin{center}
-         \includegraphics[width=8.2cm]{artigo_item08_mapa_comando_pressao.png}
-         \caption{Mapas comando--efeito: comando vs. $\mathrm{d}P/\mathrm{d}t$.}
-         \label{fig:artigo_item08_mapa_comando_pressao}
-      \end{center}
-   \end{figure}
-
-   A Figura~\ref{fig:artigo_item08_mapa_comando_pressao} relaciona comandos ($\omega_p$, $u_{in}$ e $u_{out}$) e taxas $\mathrm{d}P/\mathrm{d}t$, evidenciando dependência do ganho hidráulico em relação a $\Delta P$ e ao regime de operação. Esses mapas reforçam a natureza não linear do canal de pressão e justificam a avaliação do controle diretamente no modelo não linear \cite{ChenLv2017,Lv2014}.
-}{ }
-
 \IfFileExists{artigo_item09_tradeoff_erro_esforco.png}{%
    \begin{figure}
       \begin{center}
-         \includegraphics[width=8.2cm]{artigo_item09_tradeoff_erro_esforco.png}
+         \figpdforpng{artigo_item09_tradeoff_erro_esforco}
          \caption{Trade-off erro--esforço (variação de $R$).}
          \label{fig:artigo_item09_tradeoff_erro_esforco}
       \end{center}
@@ -500,7 +499,7 @@ Em malha fechada (Figura~\ref{fig:simulacao_comandos_e_pressao}), a arquitetura 
 \IfFileExists{artigo_item10_robustez_ruido.png}{%
    \begin{figure}
       \begin{center}
-         \includegraphics[width=8.2cm]{artigo_item10_robustez_ruido.png}
+         \figpdforpng{artigo_item10_robustez_ruido}
          \caption{Ruído de medição: métricas globais vs. nível de ruído.}
          \label{fig:artigo_item10_robustez_ruido}
       \end{center}
@@ -509,44 +508,6 @@ Em malha fechada (Figura~\ref{fig:simulacao_comandos_e_pressao}), a arquitetura 
    A Figura~\ref{fig:artigo_item10_robustez_ruido} resume o efeito do ruído de medição da pressão sobre as métricas globais de erro e esforço, complementando a Figura~\ref{fig:artigo_simulacao_ruido_medicao} com uma leitura agregada do impacto do ruído. À medida que o desvio padrão do ruído aumenta, observa-se um crescimento gradual do erro RMS e do esforço RMS do atuador, bem como um aumento na atividade de controle associada às correções sucessivas. No entanto, essa degradação é moderada na faixa de ruídos analisada (até 1~bar), sem indicar perda abrupta de desempenho.
 
    Esses resultados sugerem que o arranjo controlador--observador é capaz de tolerar níveis de ruído compatíveis com sensores reais de pressão, ainda que à custa de um aumento previsível na comutação e no desgaste dos atuadores. Do ponto de vista de projeto, isso indica que a escolha de sensores com qualidade razoável é suficiente para preservar o comportamento desejado, sem necessidade de requisitos excessivamente restritivos quanto a ruído.
-}{ }
-
-\IfFileExists{artigo_item11_transicoes_referencia.png}{%
-   \begin{figure}
-      \begin{center}
-         \includegraphics[width=8.2cm]{artigo_item11_transicoes_referencia.png}
-         \caption{Transições de referência por patamares.}
-         \label{fig:artigo_item11_transicoes_referencia}
-      \end{center}
-   \end{figure}
-
-   Embora o foco seja o regulador de baixa camada, as transições de patamar (Figura~\ref{fig:artigo_item11_transicoes_referencia}) representam mudanças de demanda compatíveis com integração a funções ADAS longitudinais, nas quais $P_{ref}$ é imposto por um controlador superior. A avaliação por segmentos permite discutir coerência do seguimento sob mudanças sucessivas de demanda, sem assumir um modelo completo de veículo.
-}{ }
-
-\IfFileExists{artigo_item12_plausibilidade_resumo.png}{%
-   \begin{figure}
-      \begin{center}
-         \includegraphics[width=8.2cm]{artigo_item12_plausibilidade_resumo.png}
-         \caption{Resumo de ordens de grandeza (pressões, picos e tempos).}
-         \label{fig:artigo_item12_plausibilidade_resumo}
-      \end{center}
-   \end{figure}
-
-   A Figura~\ref{fig:artigo_item12_plausibilidade_resumo} consolida, em um único painel, a curva base de referência e as principais ordens de grandeza extraídas das simulações. As faixas de pressão observadas em $P_w$ e $P_{sup}$, os picos de $\left|\mathrm{d}P/\mathrm{d}t\right|$, os limites de $\omega_p$ e os tempos típicos de subida e acomodação são compatíveis com o que se espera para moduladores hidráulicos empregados em sistemas de freio automotivos.
-
-   A consistência dessas ordens de grandeza com tendências reportadas na literatura e com especificações usuais de sistemas ABS/ESC reforça a plausibilidade física do modelo utilizado \cite{HouhuaJing2022,ZengYangHuang2023,Lv2014,ChenLv2017}. Assim, além de servir como ferramenta de projeto e avaliação de controle, o modelo concentrado adotado mostra-se aderente ao comportamento qualitativo e quantitativo de moduladores reais, o que é um requisito importante para a relevância prática dos resultados apresentados.
-}{ }
-
-\IfFileExists{artigo_extra_discretizacao.png}{%
-   \begin{figure}
-      \begin{center}
-         \includegraphics[width=8.2cm]{artigo_extra_discretizacao.png}
-         \caption{Sensibilidade ao período de amostragem $T_s$.}
-         \label{fig:artigo_extra_discretizacao}
-      \end{center}
-   \end{figure}
-
-   Em aplicações embarcadas, a escolha de $T_s$ influencia simultaneamente desempenho, esforço e robustez do observador. Assim, a Figura~\ref{fig:artigo_extra_discretizacao} é usada para discutir a sensibilidade do desempenho à discretização e separar limitações do atuador hidráulico de artefatos numéricos associados ao laço digital.
 }{ }
 
 \IfFileExists{artigo_simulacao_ruido_medicao.png}{%
@@ -559,13 +520,13 @@ Em malha fechada (Figura~\ref{fig:simulacao_comandos_e_pressao}), a arquitetura 
    A Figura~\ref{fig:artigo_simulacao_ruido_medicao} ilustra, no tempo, o impacto do ruído de medição na trajetória de seguimento. Observa-se aumento de flutuações em torno dos patamares (\textit{ripple}), enquanto a capacidade de rastreamento é preservada no cenário avaliado, em consonância com a síntese agregada apresentada na Figura~\ref{fig:artigo_item10_robustez_ruido}.
 }{}
 
-Em síntese, os resultados desta seção estabelecem (i) coerência causal e ordem de grandeza do modelo não linear em malha aberta e (ii) viabilidade de seguimento de referência em malha fechada sob restrições de atuação e lógica discreta. Esses achados delimitam o que o modelo e o regulador demonstram no escopo de simulação e motivam, como passos seguintes, a consolidação de métricas sumarizadas e a exploração sistemática de sensibilidade paramétrica quando o objetivo for comparar configurações e hipóteses de modelagem.
+Em síntese, os resultados desta seção estabelecem (i) coerência causal e ordem de grandeza do modelo não linear em malha aberta e (ii) viabilidade de seguimento de referência em malha fechada sob restrições de atuação e lógica discreta. No cenário nominal, o erro RMS global foi de 3.68~bar, com respostas por degrau caracterizadas por sobressinal reduzido e tempos de acomodação da ordem de poucos décimos de segundo, o que reforça a pertinência do arranjo LQI+observador para o recorte proposto. Esses achados delimitam o que o modelo e o regulador demonstram no escopo de simulação e motivam, como passos seguintes, a consolidação de métricas sumarizadas e a exploração sistemática de sensibilidade paramétrica quando o objetivo for comparar configurações e hipóteses de modelagem.
 
 \section{Conclusões}
 \label{sec:conclusoes}
-Este artigo apresentou um fluxo metodológico para projeto e avaliação, em simulação, de um regulador digital de pressão hidráulica por roda usando o módulo ABS/ESC como atuador em frenagem ativa. A combinação de modelo não linear concentrado, linearização local, síntese LQI em tempo discreto, observador de Luenberger e lógica discreta de válvulas fornece uma arquitetura compatível com restrições de atuação e com requisitos típicos de integração a funções ADAS longitudinais \cite{Lentin2022,Konrad2014}.
+Este artigo apresentou um fluxo metodológico para projeto e avaliação, em simulação, de um regulador digital de pressão hidráulica por roda usando o módulo ABS/ESC como atuador de pressão em frenagem ativa. A contribuição principal é metodológica: conectar, de forma rastreável, um modelo hidráulico não linear concentrado, uma linearização local, a síntese de um regulador LQI em tempo discreto, um observador de Luenberger e uma lógica discreta de válvulas, mantendo o estudo restrito ao subsistema de pressão hidráulica e à avaliação em simulação. A combinação desses elementos fornece uma arquitetura compatível com restrições de atuação e com requisitos típicos de integração a funções ADAS longitudinais \cite{Lentin2022,Konrad2014}, embora os resultados aqui apresentados permaneçam restritos à avaliação em simulação.
 
-Os resultados devem ser interpretados dentro do escopo proposto: evidência em ambiente MATLAB/Simulink, voltada à coerência do controle e à compatibilidade com restrições de atuação e instrumentação. As simulações em malha aberta e em malha fechada organizam um conjunto mínimo de evidências para sustentar a modelagem adotada e a pertinência de combinar regulador em tempo discreto, observador e lógica de válvulas no contexto de frenagem ativa.
+Os resultados devem ser interpretados dentro do escopo proposto: evidência em ambiente MATLAB/Simulink, voltada à coerência do controle e à compatibilidade com restrições de atuação e instrumentação, e não a uma afirmação de desempenho experimental ou de veículo completo. As simulações em malha aberta e em malha fechada organizam um conjunto mínimo de evidências para sustentar a modelagem adotada e a pertinência de combinar regulador em tempo discreto, observador e lógica de válvulas no contexto de frenagem ativa.
 
 A seção de resultados inclui um conjunto de análises diretamente extraídas das curvas simuladas: métricas por degrau, envelopes de $\mathrm{d}P/\mathrm{d}t$ e saturações, assimetria entre pressurização e alívio, avaliação de ondulação em regime, checagem local de consistência entre modelo linearizado e planta não linear, varreduras paramétricas focadas e estudo do compromisso erro--esforço. Além disso, inclui-se uma avaliação de sensibilidade ao período de amostragem para discutir robustez da implementação discreta.
 

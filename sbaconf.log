@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.1.8)  9 JUL 2026 18:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.1.8)  13 JUL 2026 11:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -364,121 +364,111 @@ Package pdftex.def Info: modulo_2P_malha_aberta.png  used on input line 263.
 <modulo_2P_malha_fechada.png, id=23, 816.04875pt x 477.28313pt>
 File: modulo_2P_malha_fechada.png Graphic file (type png)
 <use modulo_2P_malha_fechada.png>
-Package pdftex.def Info: modulo_2P_malha_fechada.png  used on input line 332.
+Package pdftex.def Info: modulo_2P_malha_fechada.png  used on input line 355.
 (pdftex.def)             Requested size: 233.3125pt x 136.45677pt.
-<scripts/figuras/artigo_ensaio_malha_aberta_integrado_real.pdf, id=24, 691.58376pt x 533.995pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4 <./modulo_2P_malha_fechada.png>]
+<scripts/figuras/artigo_ensaio_malha_aberta_integrado_real.pdf, id=34, 852.18375pt x 632.3625pt>
 File: scripts/figuras/artigo_ensaio_malha_aberta_integrado_real.pdf Graphic file (type pdf)
 <use scripts/figuras/artigo_ensaio_malha_aberta_integrado_real.pdf>
-Package pdftex.def Info: scripts/figuras/artigo_ensaio_malha_aberta_integrado_real.pdf  used on input line 350.
-(pdftex.def)             Requested size: 250.38434pt x 193.3299pt.
+Package pdftex.def Info: scripts/figuras/artigo_ensaio_malha_aberta_integrado_real.pdf  used on input line 373.
+(pdftex.def)             Requested size: 233.3125pt x 173.12347pt.
 
-Overfull \hbox (9.13005pt too wide) in paragraph at lines 356--357
+Overfull \hbox (9.13005pt too wide) in paragraph at lines 379--380
 []\T1/aer/m/n/10 Em ma-lha fe-chada (Fi-gura 4[]), a ar-qui-te-tura LQI+observador
  []
 
-[4 <./modulo_2P_malha_fechada.png>]
-<scripts/figuras/simulacao_comandos_e_pressao.pdf, id=29, 699.61375pt x 526.96875pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 390--391
+[]\T1/aer/m/n/8 O co-mando de $\OML/cmm/m/it/8 ![]$ \T1/aer/m/n/8 atinge
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 390--391
+\T1/aer/m/n/8 1500 rad/s em tran-si-ções
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 390--391
+\T1/aer/m/n/8 agres-si-vas, sem perda de
+ []
+
+<scripts/figuras/simulacao_comandos_e_pressao.pdf, id=35, 851.18pt x 618.31pt>
 File: scripts/figuras/simulacao_comandos_e_pressao.pdf Graphic file (type pdf)
 <use scripts/figuras/simulacao_comandos_e_pressao.pdf>
-Package pdftex.def Info: scripts/figuras/simulacao_comandos_e_pressao.pdf  used on input line 376.
-(pdftex.def)             Requested size: 250.38434pt x 188.59091pt.
-<scripts/figuras/artigo_item01_metricas_tracking.png, id=30, 795.6927pt x 558.888pt>
-File: scripts/figuras/artigo_item01_metricas_tracking.png Graphic file (type png)
-<use scripts/figuras/artigo_item01_metricas_tracking.png>
-Package pdftex.def Info: scripts/figuras/artigo_item01_metricas_tracking.png  used on input line 402.
-(pdftex.def)             Requested size: 233.3125pt x 163.87276pt.
-<scripts/figuras/artigo_item01_metricas_desempenho.png, id=31, 778.5888pt x 515.2851pt>
-File: scripts/figuras/artigo_item01_metricas_desempenho.png Graphic file (type png)
-<use scripts/figuras/artigo_item01_metricas_desempenho.png>
-Package pdftex.def Info: scripts/figuras/artigo_item01_metricas_desempenho.png  used on input line 402.
-(pdftex.def)             Requested size: 233.3125pt x 154.40588pt.
-<scripts/figuras/artigo_item02_dpdt_saturacao.png, id=32, 773.5299pt x 559.1289pt>
-File: scripts/figuras/artigo_item02_dpdt_saturacao.png Graphic file (type png)
-<use scripts/figuras/artigo_item02_dpdt_saturacao.png>
-Package pdftex.def Info: scripts/figuras/artigo_item02_dpdt_saturacao.png  used on input line 414.
-(pdftex.def)             Requested size: 233.3125pt x 168.6443pt.
-<scripts/figuras/artigo_item03_assimetria_subida_descida.png, id=33, 768.9528pt x 551.4201pt>
-File: scripts/figuras/artigo_item03_assimetria_subida_descida.png Graphic file (type png)
-<use scripts/figuras/artigo_item03_assimetria_subida_descida.png>
-Package pdftex.def Info: scripts/figuras/artigo_item03_assimetria_subida_descida.png  used on input line 426.
-(pdftex.def)             Requested size: 233.3125pt x 167.31204pt.
- [5 <./scripts/figuras/artigo_ensaio_malha_aberta_integrado_real.pdf> <./scripts/figuras/simulacao_comandos_e_pressao.pdf> <./scripts/figuras/artigo_item01_metricas_tracking.png (PNG copy)> <./scripts/figuras/artigo_item01_metricas_desempenho.png (PNG copy)>]
-<scripts/figuras/artigo_item04_ripple_fft.png, id=84, 773.5299pt x 559.3698pt>
-File: scripts/figuras/artigo_item04_ripple_fft.png Graphic file (type png)
-<use scripts/figuras/artigo_item04_ripple_fft.png>
-Package pdftex.def Info: scripts/figuras/artigo_item04_ripple_fft.png  used on input line 438.
-(pdftex.def)             Requested size: 233.3125pt x 168.71696pt.
-<scripts/figuras/artigo_item06_sensibilidade_parametrica.png, id=85, 772.0845pt x 379.6584pt>
-File: scripts/figuras/artigo_item06_sensibilidade_parametrica.png Graphic file (type png)
-<use scripts/figuras/artigo_item06_sensibilidade_parametrica.png>
-Package pdftex.def Info: scripts/figuras/artigo_item06_sensibilidade_parametrica.png  used on input line 462.
-(pdftex.def)             Requested size: 233.3125pt x 114.7268pt.
-<scripts/figuras/artigo_item07_atrasos_tempos.png, id=86, 721.2546pt x 363.759pt>
-File: scripts/figuras/artigo_item07_atrasos_tempos.png Graphic file (type png)
-<use scripts/figuras/artigo_item07_atrasos_tempos.png>
-Package pdftex.def Info: scripts/figuras/artigo_item07_atrasos_tempos.png  used on input line 474.
-(pdftex.def)             Requested size: 233.3125pt x 117.66522pt.
-<scripts/figuras/artigo_item08_mapa_comando_pressao.png, id=87, 800.2698pt x 557.4426pt>
-File: scripts/figuras/artigo_item08_mapa_comando_pressao.png Graphic file (type png)
-<use scripts/figuras/artigo_item08_mapa_comando_pressao.png>
-Package pdftex.def Info: scripts/figuras/artigo_item08_mapa_comando_pressao.png  used on input line 486.
-(pdftex.def)             Requested size: 233.3125pt x 162.5133pt.
-<scripts/figuras/artigo_item09_tradeoff_erro_esforco.png, id=88, 609.477pt x 362.5545pt>
-File: scripts/figuras/artigo_item09_tradeoff_erro_esforco.png Graphic file (type png)
-<use scripts/figuras/artigo_item09_tradeoff_erro_esforco.png>
-Package pdftex.def Info: scripts/figuras/artigo_item09_tradeoff_erro_esforco.png  used on input line 498.
-(pdftex.def)             Requested size: 233.3125pt x 138.79005pt.
- [6 <./scripts/figuras/artigo_item02_dpdt_saturacao.png (PNG copy)> <./scripts/figuras/artigo_item03_assimetria_subida_descida.png (PNG copy)> <./scripts/figuras/artigo_item04_ripple_fft.png (PNG copy)> <./scripts/figuras/artigo_item06_sensibilidade_parametrica.png (PNG copy)> <./scripts/figuras/artigo_item07_atrasos_tempos.png (PNG copy)> <./scripts/figuras/artigo_item08_mapa_comando_pressao.png (PNG copy)>]
-<scripts/figuras/artigo_item10_robustez_ruido.png, id=92, 701.9826pt x 377.0085pt>
-File: scripts/figuras/artigo_item10_robustez_ruido.png Graphic file (type png)
-<use scripts/figuras/artigo_item10_robustez_ruido.png>
-Package pdftex.def Info: scripts/figuras/artigo_item10_robustez_ruido.png  used on input line 512.
-(pdftex.def)             Requested size: 233.3125pt x 125.30484pt.
-<scripts/figuras/artigo_item11_transicoes_referencia.png, id=93, 680.0607pt x 362.5545pt>
-File: scripts/figuras/artigo_item11_transicoes_referencia.png Graphic file (type png)
-<use scripts/figuras/artigo_item11_transicoes_referencia.png>
-Package pdftex.def Info: scripts/figuras/artigo_item11_transicoes_referencia.png  used on input line 524.
-(pdftex.def)             Requested size: 233.3125pt x 124.38438pt.
-<scripts/figuras/artigo_item12_plausibilidade_resumo.png, id=94, 767.2665pt x 389.2944pt>
-File: scripts/figuras/artigo_item12_plausibilidade_resumo.png Graphic file (type png)
-<use scripts/figuras/artigo_item12_plausibilidade_resumo.png>
-Package pdftex.def Info: scripts/figuras/artigo_item12_plausibilidade_resumo.png  used on input line 538.
-(pdftex.def)             Requested size: 233.3125pt x 118.37523pt.
-<scripts/figuras/artigo_extra_discretizacao.png, id=95, 707.5233pt x 376.7676pt>
-File: scripts/figuras/artigo_extra_discretizacao.png Graphic file (type png)
-<use scripts/figuras/artigo_extra_discretizacao.png>
-Package pdftex.def Info: scripts/figuras/artigo_extra_discretizacao.png  used on input line 550.
-(pdftex.def)             Requested size: 233.3125pt x 124.2417pt.
- [7 <./scripts/figuras/artigo_item09_tradeoff_erro_esforco.png (PNG copy)> <./scripts/figuras/artigo_item10_robustez_ruido.png (PNG copy)> <./scripts/figuras/artigo_item11_transicoes_referencia.png (PNG copy)> <./scripts/figuras/artigo_item12_plausibilidade_resumo.png (PNG copy)> <./scripts/figuras/artigo_extra_discretizacao.png (PNG copy)>]
-<scripts/figuras/artigo_simulacao_ruido_medicao.pdf, id=100, 695.59875pt x 538.01pt>
+Package pdftex.def Info: scripts/figuras/simulacao_comandos_e_pressao.pdf  used on input line 399.
+(pdftex.def)             Requested size: 233.3125pt x 169.47441pt.
+<scripts/figuras/artigo_item01_metricas_tracking.pdf, id=36, 882.29625pt x 631.35875pt>
+File: scripts/figuras/artigo_item01_metricas_tracking.pdf Graphic file (type pdf)
+<use scripts/figuras/artigo_item01_metricas_tracking.pdf>
+Package pdftex.def Info: scripts/figuras/artigo_item01_metricas_tracking.pdf  used on input line 425.
+(pdftex.def)             Requested size: 233.3125pt x 166.95282pt.
+<scripts/figuras/artigo_item01_metricas_desempenho.pdf, id=37, 854.19125pt x 628.3475pt>
+File: scripts/figuras/artigo_item01_metricas_desempenho.pdf Graphic file (type pdf)
+<use scripts/figuras/artigo_item01_metricas_desempenho.pdf>
+Package pdftex.def Info: scripts/figuras/artigo_item01_metricas_desempenho.pdf  used on input line 425.
+(pdftex.def)             Requested size: 233.3125pt x 171.62158pt.
+<scripts/figuras/artigo_item02_dpdt_saturacao.pdf, id=38, 852.18375pt x 631.35875pt>
+File: scripts/figuras/artigo_item02_dpdt_saturacao.pdf Graphic file (type pdf)
+<use scripts/figuras/artigo_item02_dpdt_saturacao.pdf>
+Package pdftex.def Info: scripts/figuras/artigo_item02_dpdt_saturacao.pdf  used on input line 437.
+(pdftex.def)             Requested size: 233.3125pt x 172.84868pt.
+[5 <./scripts/figuras/artigo_ensaio_malha_aberta_integrado_real.pdf> <./scripts/figuras/simulacao_comandos_e_pressao.pdf> <./scripts/figuras/artigo_item01_metricas_tracking.pdf>]
+<scripts/figuras/artigo_item03_assimetria_subida_descida.pdf, id=107, 843.15pt x 618.31pt>
+File: scripts/figuras/artigo_item03_assimetria_subida_descida.pdf Graphic file (type pdf)
+<use scripts/figuras/artigo_item03_assimetria_subida_descida.pdf>
+Package pdftex.def Info: scripts/figuras/artigo_item03_assimetria_subida_descida.pdf  used on input line 449.
+(pdftex.def)             Requested size: 233.3125pt x 171.09717pt.
+<scripts/figuras/artigo_item04_ripple_fft.pdf, id=108, 847.165pt x 631.35875pt>
+File: scripts/figuras/artigo_item04_ripple_fft.pdf Graphic file (type pdf)
+<use scripts/figuras/artigo_item04_ripple_fft.pdf>
+Package pdftex.def Info: scripts/figuras/artigo_item04_ripple_fft.pdf  used on input line 461.
+(pdftex.def)             Requested size: 233.3125pt x 173.87949pt.
+<scripts/figuras/artigo_item06_sensibilidade_parametrica.pdf, id=109, 847.165pt x 631.35875pt>
+File: scripts/figuras/artigo_item06_sensibilidade_parametrica.pdf Graphic file (type pdf)
+<use scripts/figuras/artigo_item06_sensibilidade_parametrica.pdf>
+Package pdftex.def Info: scripts/figuras/artigo_item06_sensibilidade_parametrica.pdf  used on input line 485.
+(pdftex.def)             Requested size: 233.3125pt x 173.87949pt.
+<scripts/figuras/artigo_item09_tradeoff_erro_esforco.pdf, id=110, 764.8575pt x 583.17876pt>
+File: scripts/figuras/artigo_item09_tradeoff_erro_esforco.pdf Graphic file (type pdf)
+<use scripts/figuras/artigo_item09_tradeoff_erro_esforco.pdf>
+Package pdftex.def Info: scripts/figuras/artigo_item09_tradeoff_erro_esforco.pdf  used on input line 497.
+(pdftex.def)             Requested size: 233.3125pt x 177.89151pt.
+ [6 <./scripts/figuras/artigo_item01_metricas_desempenho.pdf> <./scripts/figuras/artigo_item02_dpdt_saturacao.pdf> <./scripts/figuras/artigo_item03_assimetria_subida_descida.pdf> <./scripts/figuras/artigo_item04_ripple_fft.pdf> <./scripts/figuras/artigo_item06_sensibilidade_parametrica.pdf>]
+<scripts/figuras/artigo_item10_robustez_ruido.pdf, id=249, 844.15375pt x 628.3475pt>
+File: scripts/figuras/artigo_item10_robustez_ruido.pdf Graphic file (type pdf)
+<use scripts/figuras/artigo_item10_robustez_ruido.pdf>
+Package pdftex.def Info: scripts/figuras/artigo_item10_robustez_ruido.pdf  used on input line 511.
+(pdftex.def)             Requested size: 233.3125pt x 173.66379pt.
+<scripts/figuras/artigo_simulacao_ruido_medicao.pdf, id=250, 851.18pt x 619.31375pt>
 File: scripts/figuras/artigo_simulacao_ruido_medicao.pdf Graphic file (type pdf)
 <use scripts/figuras/artigo_simulacao_ruido_medicao.pdf>
-Package pdftex.def Info: scripts/figuras/artigo_simulacao_ruido_medicao.pdf  used on input line 560.
-(pdftex.def)             Requested size: 250.38434pt x 193.65881pt.
- (sbaconf.bbl
+Package pdftex.def Info: scripts/figuras/artigo_simulacao_ruido_medicao.pdf  used on input line 521.
+(pdftex.def)             Requested size: 233.3125pt x 169.74953pt.
+ [7 <./scripts/figuras/artigo_item09_tradeoff_erro_esforco.pdf> <./scripts/figuras/artigo_item10_robustez_ruido.pdf> <./scripts/figuras/artigo_simulacao_ruido_medicao.pdf>] (sbaconf.bbl
 LaTeX Font Info:    Trying to load font information for T1+aett on input line 16.
  (C:\Users\uidq5744\AppData\Local\Programs\MiKTeX\tex/latex/ae\t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
-) [8 <./scripts/figuras/artigo_simulacao_ruido_medicao.pdf>]) [9
-
-] (sbaconf.aux)
+)) [8] (sbaconf.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 5806 strings out of 474479
- 99985 string characters out of 5742176
+ 5789 strings out of 474479
+ 99286 string characters out of 5742176
  1948542 words of memory out of 5000000
- 27980 multiletter control sequences out of 15000+600000
+ 27963 multiletter control sequences out of 15000+600000
  577796 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  61i,13n,71p,1824b,410s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmb10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on sbaconf.pdf (9 pages, 3319327 bytes).
+<C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmb10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on sbaconf.pdf (8 pages, 3977937 bytes).
 PDF statistics:
- 220 PDF objects out of 1000 (max. 8388607)
+ 404 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 91 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

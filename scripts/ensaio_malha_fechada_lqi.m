@@ -190,7 +190,7 @@ set(groot,'defaultAxesFontSize',11);
 set(groot,'defaultAxesFontName','Times New Roman');
 set(groot,'defaultFigureRenderer','painters');
 
-fig = figure('Color','w','Position',[100 100 980 720]);
+fig = figure('Color','w','Position',[100 100 1200 850]);
 tiledlayout(2,1,'TileSpacing','compact','Padding','compact');
 
 % 1) Entradas / Comandos
@@ -198,9 +198,9 @@ nexttile;
 plot(omega_p.Time, squeeze(omega_p.Data),'k'); hold on;
 plot(u_in.Time,  squeeze(u_in.Data)*max(squeeze(omega_p.Data)),'b--');
 plot(u_out.Time, squeeze(u_out.Data)*max(squeeze(omega_p.Data)),'r--');
-grid on; ylabel('\\omega_p (rad/s)');
-title('Sinais de comando');
-legend('\\omega_p','u_{in} (esc.)','u_{out} (esc.)','Location','best');
+grid on; ylabel('\\omega_p (rad/s)','FontSize',18);
+title('Sinais de comando','FontSize',18);
+legend('\\omega_p','u_{in} (esc.)','u_{out} (esc.)','Location','best','FontSize',16);
 ylim([-0.1*max(squeeze(omega_p.Data)), 1.1*max(squeeze(omega_p.Data))]);
 xlim([0 Tstop]);
 
@@ -209,8 +209,8 @@ nexttile;
 plot(Psup.Time, squeeze(Psup.Data),'b'); hold on;
 plot(Pw.Time,   squeeze(Pw.Data),'r');
 plot(Pref.Time, squeeze(Pref.Data),'k--');
-grid on; ylabel('Pressão (bar)'); title('Pressões e referência');
-legend('P_{sup}','P_w','P_{ref}','Location','best');
+grid on; ylabel('Pressão (bar)','FontSize',18); title('Pressões e referência','FontSize',18);
+legend('P_{sup}','P_w','P_{ref}','Location','best','FontSize',16);
 ymin = min([squeeze(Psup.Data); squeeze(Pw.Data); squeeze(Pref.Data)]);
 ymax = max([squeeze(Psup.Data); squeeze(Pw.Data); squeeze(Pref.Data)]);
 ylim([ymin-5, ymax+5]);
@@ -224,7 +224,7 @@ if ~exist(outDir,'dir'), mkdir(outDir); end
 pdfPath = fullfile(outDir,'simulacao_comandos_e_pressao.pdf');
 pngPath = fullfile(outDir,'simulacao_comandos_e_pressao.png');
 exportgraphics(fig, pdfPath, 'ContentType','vector');
-exportgraphics(fig, pngPath, 'Resolution', 600);
+exportgraphics(fig, pngPath, 'Resolution', 1200);
 
 disp('OK: figuras exportadas em:');
 disp(outDir);
@@ -255,55 +255,55 @@ tol_frac   = 0.02;
 stepTbl = compute_step_metrics(t_vec, Pref_bar, Pw_bar, alpha_rise, tol_frac);
 
 % Item 1) Metricas de rastreamento por trecho
-fig1 = figure('Color','w','Position',[80 80 1100 760]);
+fig1 = figure('Color','w','Position',[80 80 1200 850]);
 tiledlayout(3,1,'TileSpacing','compact','Padding','compact');
 
 nexttile;
 plot(t_vec, Pw_bar,'r','LineWidth',1.4); hold on;
 plot(t_vec, Pref_bar,'k--','LineWidth',1.2);
-grid on; ylabel('Pressao (bar)');
-title('Item 1: Resposta e referencia');
-legend('P_w','P_{ref}','Location','best');
+grid on; ylabel('Pressao (bar)','FontSize',18);
+title('Item 1: Resposta e referencia','FontSize',18);
+legend('P_w','P_{ref}','Location','best','FontSize',16);
 
 nexttile;
 plot(t_vec, e_bar,'b','LineWidth',1.2);
-grid on; ylabel('Erro (bar)');
-title('Erro de seguimento e(t) = P_{ref}(t) - P_w(t)');
+grid on; ylabel('Erro (bar)','FontSize',18);
+title('Erro de seguimento e(t) = P_{ref}(t) - P_w(t)','FontSize',18);
 
 nexttile;
 if ~isempty(stepTbl)
       k = (1:height(stepTbl))';
       yyaxis left;
       bar(k, stepTbl.RMSE_seg,'FaceColor',[0.3 0.3 0.8],'EdgeColor','none');
-      ylabel('RMSE por degrau (bar)');
+      ylabel('RMSE por degrau (bar)','FontSize',18);
       yyaxis right;
       plot(k, abs(stepTbl.e_inf),'ko-','LineWidth',1.2,'MarkerSize',4);
-      ylabel('|e_{inf}| (bar)');
+      ylabel('|e_{inf}| (bar)','FontSize',18);
       grid on;
-      xlabel('Indice do degrau');
-      title('Resumo por degrau (RMSE e erro estacionario)');
+      xlabel('Indice do degrau','FontSize',18);
+      title('Resumo por degrau (RMSE e erro estacionario)','FontSize',18);
 else
       axis off;
-      text(0,0.5,'Nao foi possivel extrair degraus de P_{ref}.','FontSize',11);
+      text(0,0.5,'Nao foi possivel extrair degraus de P_{ref}.','FontSize',16);
 end
 
 export_figure(fig1, outDir, 'artigo_item01_metricas_tracking');
 
 % Figura adicional (template ja usado) com anotacao de metricas em texto
-fig1b = figure('Color','w','Position',[80 80 1100 700]);
+fig1b = figure('Color','w','Position',[80 80 1200 850]);
 tiledlayout(3,1,'TileSpacing','compact','Padding','compact');
 
 nexttile;
 plot(t_vec, Pw_bar,'r','LineWidth',1.4); hold on;
 plot(t_vec, Pref_bar,'k--','LineWidth',1.2);
-grid on; ylabel('Pressao (bar)');
-title('Resposta e referencia (P_w)');
-legend('P_w','P_{ref}','Location','best');
+grid on; ylabel('Pressao (bar)','FontSize',18);
+title('Resposta e referencia (P_w)','FontSize',18);
+legend('P_w','P_{ref}','Location','best','FontSize',16);
 
 nexttile;
 plot(t_vec, e_bar,'b','LineWidth',1.2);
-grid on; ylabel('Erro (bar)'); xlabel('Tempo (s)');
-title('Erro de seguimento');
+grid on; ylabel('Erro (bar)','FontSize',18); xlabel('Tempo (s)','FontSize',18);
+title('Erro de seguimento','FontSize',18);
 
 txt = build_metrics_text(t_vec, Pref_bar, Pw_bar, omega, uin, uout, stepTbl);
 annotation(fig1b,'textbox',[0.04 0.01 0.92 0.26], ...
@@ -317,21 +317,21 @@ dPw_dt = gradient(Pw_bar, t_vec);   % bar/s
 dPs_dt = gradient(Psup_bar, t_vec); % bar/s
 omega_max = max(omega);
 
-fig2 = figure('Color','w','Position',[80 80 1100 760]);
+fig2 = figure('Color','w','Position',[80 80 1200 850]);
 tiledlayout(3,1,'TileSpacing','compact','Padding','compact');
 
 nexttile;
 plot(t_vec, Pw_bar,'r'); hold on;
 plot(t_vec, Pref_bar,'k--');
-grid on; ylabel('Pressao (bar)');
-title('Item 2: Pressao e referencia');
+grid on; ylabel('Pressao (bar)','FontSize',18);
+title('Item 2: Pressao e referencia','FontSize',18);
 
 nexttile;
 plot(t_vec, dPw_dt,'b'); hold on;
 plot(t_vec, dPs_dt,'c');
-grid on; ylabel('dP/dt (bar/s)');
-legend('dP_w/dt','dP_{sup}/dt','Location','best');
-title('Taxas de variacao de pressao');
+grid on; ylabel('dP/dt (bar/s)','FontSize',18);
+legend('dP_w/dt','dP_{sup}/dt','Location','best','FontSize',16);
+title('Taxas de variacao de pressao','FontSize',18);
 
 nexttile;
 plot(t_vec, omega,'k'); hold on;
@@ -341,15 +341,15 @@ satMask = omega >= 0.99*omega_max;
 if any(satMask)
       plot(t_vec(satMask), omega(satMask),'mo','MarkerSize',3,'MarkerFaceColor','m');
 end
-grid on; xlabel('Tempo (s)'); ylabel('\omega_p (rad/s)');
-legend('\omega_p','u_{in} (esc.)','u_{out} (esc.)','\omega_p ~ sat','Location','best');
-title('Comandos e indicacao de saturacao (proxima ao maximo observado)');
+grid on; xlabel('Tempo (s)','FontSize',18); ylabel('omega_p (rad/s)','FontSize',18);
+legend('omega_p','u_{in} (esc.)','u_{out} (esc.)','omega_p ~ sat','Location','best','FontSize',18);
+title('Comandos e indicacao de saturacao (proxima ao maximo observado)','FontSize',18);
 
 export_figure(fig2, outDir, 'artigo_item02_dpdt_saturacao');
 
 % Item 3) Assimetria: subida vs descida
 [iRise, iFall] = pick_rise_fall_steps(Pref_bar);
-fig3 = figure('Color','w','Position',[80 80 1100 760]);
+fig3 = figure('Color','w','Position',[80 80 1200 850]);
 tiledlayout(2,2,'TileSpacing','compact','Padding','compact');
 
 plot_step_zoom(1, iRise, 'Subida (pressurizacao)', t_vec, Pw_bar, Pref_bar, dPw_dt, omega, uin, uout);
@@ -361,22 +361,22 @@ export_figure(fig3, outDir, 'artigo_item03_assimetria_subida_descida');
 [seg_t, seg_y, seg_r] = pick_steady_segment(t_vec, Pw_bar, Pref_bar, idx_steps);
 seg_e = seg_r - seg_y;
 
-fig4 = figure('Color','w','Position',[80 80 1100 760]);
+fig4 = figure('Color','w','Position',[80 80 1200 850]);
 tiledlayout(2,1,'TileSpacing','compact','Padding','compact');
 
 nexttile;
 plot(seg_t, seg_y,'r','LineWidth',1.4); hold on;
 plot(seg_t, seg_r,'k--','LineWidth',1.2);
-grid on; ylabel('Pressao (bar)');
-title('Item 4: Zoom em regime (possivel ripple)');
-legend('P_w','P_{ref}','Location','best');
+grid on; ylabel('Pressao (bar)','FontSize',18);
+title('Item 4: Zoom em regime (possivel ripple)','FontSize',18);
+legend('P_w','P_{ref}','Location','best','FontSize',16);
 
 nexttile;
 fs = 1/mean(diff(seg_t));
 [f, mag] = simple_fft_mag(seg_e - mean(seg_e), fs);
 plot(f, mag,'b','LineWidth',1.2);
-grid on; xlabel('Frequencia (Hz)'); ylabel('|FFT(e)| (a.u.)');
-title('Espectro do erro no trecho em regime (FFT, sem janela)');
+grid on; xlabel('Frequencia (Hz)','FontSize',18); ylabel('|FFT(e)| (a.u.)','FontSize',18);
+title('Espectro do erro no trecho em regime (FFT, sem janela)','FontSize',18);
 xlim([0, min(500, max(f))]);
 
 export_figure(fig4, outDir, 'artigo_item04_ripple_fft');
@@ -398,12 +398,12 @@ if ~isempty(t_win)
       y_lin = lsim(sys_d, uS, tS, x0_pa);
       Pw_lin_bar = y_lin/1e5 + Pw_op/1e5;
       Pw_nl_bar  = interp1(t_vec, Pw_bar, tS, 'linear','extrap');
-      fig5 = figure('Color','w','Position',[80 80 1100 520]);
+      fig5 = figure('Color','w','Position',[80 80 1200 850]);
       plot(tS, Pw_nl_bar,'r','LineWidth',1.4); hold on;
       plot(tS, Pw_lin_bar,'k--','LineWidth',1.2);
-      grid on; xlabel('Tempo (s)'); ylabel('P_w (bar)');
-      title('Item 5: Comparacao local (nao linear vs linearizado) em janela de operacao');
-      legend('Planta nao linear (Simulink)','Modelo linear (local)','Location','best');
+      grid on; xlabel('Tempo (s)','FontSize',18); ylabel('P_w (bar)','FontSize',18);
+      title('Item 5: Comparacao local (nao linear vs linearizado) em janela de operacao','FontSize',18);
+      legend('Planta nao linear (Simulink)','Modelo linear (local)','Location','best','FontSize',16);
       export_figure(fig5, outDir, 'artigo_item05_validacao_linearizacao');
 else
       warning('Item 5: janela de validacao linear nao encontrada (u_in/u_out nao permitem).');
@@ -425,50 +425,50 @@ catch me
 end
 
 % Item 7) Atrasos efetivos e tempos caracteristicos por degrau
-fig7 = figure('Color','w','Position',[80 80 1100 520]);
+fig7 = figure('Color','w','Position',[80 80 1200 850]);
 if ~isempty(stepTbl)
       k = (1:height(stepTbl))';
       yyaxis left;
       stem(k, stepTbl.t_delay10,'filled','LineWidth',1.2); hold on;
-      ylabel('Atraso ate 10% (s)');
+      ylabel('Atraso ate 10% (s)','FontSize',18);
       yyaxis right;
       plot(k, stepTbl.tr_10_90,'ko-','LineWidth',1.2,'MarkerSize',4);
-      ylabel('t_r (10-90%) (s)');
-      grid on; xlabel('Indice do degrau');
-      title('Item 7: Atraso efetivo e tempo de subida por degrau');
-      legend('Atraso (10%)','t_r (10-90%)','Location','best');
+      ylabel('t_r (10-90%) (s)','FontSize',18);
+      grid on; xlabel('Indice do degrau','FontSize',18);
+      title('Item 7: Atraso efetivo e tempo de subida por degrau','FontSize',18);
+      legend('Atraso (10%)','t_r (10-90%)','Location','best','FontSize',16);
 else
       axis off;
-      text(0,0.5,'Tabela de degraus vazia - nao ha atrasos para plotar.','FontSize',11);
+      text(0,0.5,'Tabela de degraus vazia - nao ha atrasos para plotar.','FontSize',18);
 end
 export_figure(fig7, outDir, 'artigo_item07_atrasos_tempos');
 
 % Item 8) Relacao comando -> pressao (mapas)
-fig8 = figure('Color','w','Position',[80 80 1100 760]);
+fig8 = figure('Color','w','Position',[80 80 1200 850]);
 tiledlayout(2,2,'TileSpacing','compact','Padding','compact');
 
 nexttile;
 scatter(omega, dPs_dt, 8, (Psup_bar - Pw_bar), 'filled');
-grid on; xlabel('\omega_p (rad/s)'); ylabel('dP_{sup}/dt (bar/s)');
-title('\omega_p -> dP_{sup}/dt (cor = \DeltaP)');
+grid on; xlabel('omega_p (rad/s)','FontSize',18); ylabel('dP_{sup}/dt (bar/s)','FontSize',18);
+title('omega_p -> dP_{sup}/dt (cor = \DeltaP)','FontSize',18);
 cb = colorbar; cb.Label.String = '\DeltaP (bar)';
 
 nexttile;
 scatter(omega, dPw_dt, 8, (Psup_bar - Pw_bar), 'filled');
-grid on; xlabel('\omega_p (rad/s)'); ylabel('dP_w/dt (bar/s)');
-title('\omega_p -> dP_w/dt (cor = \DeltaP)');
+grid on; xlabel('omega_p (rad/s)','FontSize',18); ylabel('dP_w/dt (bar/s)','FontSize',18);
+title('omega_p -> dP_w/dt (cor = \DeltaP)','FontSize',18);
 cb = colorbar; cb.Label.String = '\DeltaP (bar)';
 
 nexttile;
 scatter(uout, dPw_dt, 8, Pw_bar, 'filled');
-grid on; xlabel('u_{out}'); ylabel('dP_w/dt (bar/s)');
-title('u_{out} -> dP_w/dt (cor = P_w)');
+grid on; xlabel('u_{out}','FontSize',18); ylabel('dP_w/dt (bar/s)','FontSize',18);
+title('u_{out} -> dP_w/dt (cor = P_w)','FontSize',18);
 cb = colorbar; cb.Label.String = 'P_w (bar)';
 
 nexttile;
 scatter(uin, dPw_dt, 8, (Psup_bar - Pw_bar), 'filled');
-grid on; xlabel('u_{in}'); ylabel('dP_w/dt (bar/s)');
-title('u_{in} -> dP_w/dt (cor = \DeltaP)');
+grid on; xlabel('u_{in}','FontSize',18); ylabel('dP_w/dt (bar/s)','FontSize',18);
+title('u_{in} -> dP_w/dt (cor = \DeltaP)','FontSize',18);
 cb = colorbar; cb.Label.String = '\DeltaP (bar)';
 
 export_figure(fig8, outDir, 'artigo_item08_mapa_comando_pressao');
@@ -476,10 +476,10 @@ export_figure(fig8, outDir, 'artigo_item08_mapa_comando_pressao');
 % Item 9) Trade-off erro vs esforco (varrer R do LQI)
 try
       tradeRes = run_tradeoff_sweep(model, A, B, C, Ts, Tf);
-      fig9 = figure('Color','w','Position',[80 80 950 520]);
+      fig9 = figure('Color','w','Position',[80 80 1200 850]);
       plot(tradeRes.e_rms, tradeRes.omega_rms,'ko-','LineWidth',1.3,'MarkerSize',5); hold on;
-      grid on; xlabel('e_{RMS} (bar)'); ylabel('RMS(\omega_p) (rad/s)');
-      title('Item 9: Trade-off (erro vs esforco de controle)');
+      grid on; xlabel('e_{RMS} (bar)','FontSize',18); ylabel('RMS(\omega_p) (rad/s)','FontSize',18);
+      title('Item 9: Trade-off (erro vs esforco de controle)','FontSize',18);
       export_figure(fig9, outDir, 'artigo_item09_tradeoff_erro_esforco');
 catch me
       warning('Item 9: falha no sweep de trade-off: %s', me.message);
@@ -495,26 +495,26 @@ catch me
 end
 
 % Item 11) Transicoes/mudancas de patamar (marcacao dos degraus)
-fig11 = figure('Color','w','Position',[80 80 1100 520]);
+fig11 = figure('Color','w','Position',[80 80 1200 850]);
 plot(t_vec, Pw_bar,'r','LineWidth',1.4); hold on;
 plot(t_vec, Pref_bar,'k--','LineWidth',1.2);
 for k = 1:numel(idx_steps)
       xline(t_vec(idx_steps(k)),'Color',[0.6 0.6 0.6],'LineStyle',':');
 end
-grid on; xlabel('Tempo (s)'); ylabel('Pressao (bar)');
-title('Item 11: Transicoes de referencia (patamares)');
-legend('P_w','P_{ref}','Location','best');
+grid on; xlabel('Tempo (s)','FontSize',18); ylabel('Pressao (bar)','FontSize',18);
+title('Item 11: Transicoes de referencia (patamares)','FontSize',18);
+legend('P_w','P_{ref}','Location','best','FontSize',16);
 export_figure(fig11, outDir, 'artigo_item11_transicoes_referencia');
 
 % Item 12) Plausibilidade: resumo de ordens de grandeza extraidas da simulacao
-fig12 = figure('Color','w','Position',[80 80 1100 620]);
+fig12 = figure('Color','w','Position',[80 80 1200 850]);
 tiledlayout(2,1,'TileSpacing','compact','Padding','compact');
 
 nexttile;
 plot(t_vec, Pw_bar,'r','LineWidth',1.4); hold on;
 plot(t_vec, Pref_bar,'k--','LineWidth',1.2);
-grid on; ylabel('Pressao (bar)');
-title('Item 12: Curva base (contexto)');
+grid on; ylabel('Pressao (bar)','FontSize',18);
+title('Item 12: Curva base (contexto)','FontSize',18);
 
 nexttile;
 axis off;
@@ -686,9 +686,9 @@ function plot_step_zoom(tileRow, idx0, ttl, t, y, r, dy, omega, uin, uout)
       nexttile((tileRow-1)*2 + 1);
       plot(t(mask), y(mask),'r','LineWidth',1.4); hold on;
       plot(t(mask), r(mask),'k--','LineWidth',1.2);
-      grid on; ylabel('Pressao (bar)');
-      title(['Item 3: ' ttl ' - pressao']);
-      legend('P_w','P_{ref}','Location','best');
+      grid on; ylabel('Pressao (bar)','FontSize',18);
+      title(['Item 3: ' ttl ' - pressao'],'FontSize',18);
+      legend('P_w','P_{ref}','Location','best','FontSize',16);
 
       nexttile((tileRow-1)*2 + 2);
       omega_max = max(omega);
@@ -696,9 +696,9 @@ function plot_step_zoom(tileRow, idx0, ttl, t, y, r, dy, omega, uin, uout)
       plot(t(mask), omega(mask)/max(omega_max,eps),'k');
       plot(t(mask), uin(mask),'b--');
       plot(t(mask), uout(mask),'r--');
-      grid on; ylabel('Normalizado / bar/s');
-      title(['Item 3: ' ttl ' - taxa e comandos']);
-      legend('dP_w/dt','\\omega_p (norm.)','u_{in}','u_{out}','Location','best');
+      grid on; ylabel('Normalizado / bar/s','FontSize',18);
+      title(['Item 3: ' ttl ' - taxa e comandos'],'FontSize',18);
+      legend('dP_w/dt','\\omega_p (norm.)','u_{in}','u_{out}','Location','best','FontSize',16);
 end
 
 function [seg_t, seg_y, seg_r] = pick_steady_segment(t, y, r, idx_steps)
@@ -806,7 +806,7 @@ function sensRes = run_param_sensitivity(model, sensParams, Ts, Tf, Pref_ts)
 end
 
 function fig = plot_sensitivity_results(sensRes)
-      fig = figure('Color','w','Position',[80 80 1100 520]);
+      fig = figure('Color','w','Position',[80 80 1200 850]);
       tiledlayout(1,2,'TileSpacing','compact','Padding','compact');
       pts = sensRes.points;
       params = unique(pts.param,'stable');
@@ -818,9 +818,9 @@ function fig = plot_sensitivity_results(sensRes)
             sel = strcmp(pts.param,p);
             plot(pts.scale(sel), pts.e_rms(sel), 'o-','LineWidth',1.2,'MarkerSize',5);
       end
-      grid on; xlabel('Escala do parametro'); ylabel('e_{RMS} (bar)');
-      title('Item 6: Sensibilidade (erro RMS)');
-      legend(params,'Location','best');
+      grid on; xlabel('Escala do parametro','FontSize',18); ylabel('e_{RMS} (bar)','FontSize',18);
+      title('Item 6: Sensibilidade (erro RMS)','FontSize',18);
+      legend(params,'Location','best','FontSize',16);
 
       nexttile;
       hold on;
@@ -829,9 +829,9 @@ function fig = plot_sensitivity_results(sensRes)
             sel = strcmp(pts.param,p);
             plot(pts.scale(sel), pts.omega_rms(sel), 'o-','LineWidth',1.2,'MarkerSize',5);
       end
-      grid on; xlabel('Escala do parametro'); ylabel('RMS(\omega_p) (rad/s)');
-      title('Item 6: Sensibilidade (esforco)');
-      legend(params,'Location','best');
+      grid on; xlabel('Escala do parametro','FontSize',18); ylabel('RMS(\omega_p) (rad/s)','FontSize',18);
+      title('Item 6: Sensibilidade (esforco)','FontSize',18);
+      legend(params,'Location','best','FontSize',16);
 end
 
 function tradeRes = run_tradeoff_sweep(model, A, B, C, Ts, Tf)
@@ -917,18 +917,18 @@ function noiseRes = run_noise_sweep(model, Ts, Tf, Pref_ts)
 end
 
 function fig = plot_noise_results(noiseRes)
-      fig = figure('Color','w','Position',[80 80 1000 520]);
+      fig = figure('Color','w','Position',[80 80 1200 850]);
       tiledlayout(1,2,'TileSpacing','compact','Padding','compact');
 
       nexttile;
       plot(noiseRes.std_bar, noiseRes.e_rms,'ko-','LineWidth',1.2,'MarkerSize',5);
-      grid on; xlabel('\sigma_n (bar)'); ylabel('e_{RMS} (bar)');
-      title('Item 10: Degradacao do erro com ruido');
+      grid on; xlabel('\sigma_n (bar)','FontSize',18); ylabel('e_{RMS} (bar)','FontSize',18);
+      title('Item 10: Degradacao do erro com ruido','FontSize',18);
 
       nexttile;
       plot(noiseRes.std_bar, noiseRes.omega_rms,'ko-','LineWidth',1.2,'MarkerSize',5);
-      grid on; xlabel('\sigma_n (bar)'); ylabel('RMS(\omega_p) (rad/s)');
-      title('Item 10: Esforco vs ruido');
+      grid on; xlabel('\sigma_n (bar)','FontSize',18); ylabel('RMS(\omega_p) (rad/s)','FontSize',18);
+      title('Item 10: Esforco vs ruido','FontSize',18);
 end
 
 function txt = build_plausibility_text(t, Pw_bar, Psup_bar, dPw_dt, dPs_dt, stepTbl, omega, uin, uout)
@@ -1007,15 +1007,15 @@ function discRes = run_discretization_sweep(model, A, B, C, Ts_list, Tf)
 end
 
 function fig = plot_discretization_results(discRes)
-      fig = figure('Color','w','Position',[80 80 1000 520]);
+      fig = figure('Color','w','Position',[80 80 1200 850]);
       tiledlayout(1,2,'TileSpacing','compact','Padding','compact');
       nexttile;
       semilogx(discRes.Ts, discRes.e_rms,'ko-','LineWidth',1.2,'MarkerSize',5);
-      grid on; xlabel('T_s (s)'); ylabel('e_{RMS} (bar)');
-      title('Extra: Sensibilidade a discretizacao (erro)');
+      grid on; xlabel('T_s (s)','FontSize',18); ylabel('e_{RMS} (bar)','FontSize',18);
+      title('Extra: Sensibilidade a discretizacao (erro)','FontSize',18);
 
       nexttile;
       semilogx(discRes.Ts, discRes.omega_rms,'ko-','LineWidth',1.2,'MarkerSize',5);
-      grid on; xlabel('T_s (s)'); ylabel('RMS(\omega_p) (rad/s)');
-      title('Extra: Sensibilidade a discretizacao (esforco)');
+      grid on; xlabel('T_s (s)','FontSize',18); ylabel('RMS(\omega_p) (rad/s)','FontSize',18);
+      title('Extra: Sensibilidade a discretizacao (esforco)','FontSize',18);
 end

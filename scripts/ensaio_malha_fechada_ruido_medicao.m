@@ -54,11 +54,11 @@ Tstop = max(Pw.Time);
 
 %% Figura: referência vs pressão verdadeira vs pressão medida
 set(groot,'defaultLineLineWidth',1.6);
-set(groot,'defaultAxesFontSize',11);
+set(groot,'defaultAxesFontSize',13);
 set(groot,'defaultAxesFontName','Times New Roman');
 set(groot,'defaultFigureRenderer','painters');
 
-fig = figure('Color','w','Position',[100 100 980 720]);
+fig = figure('Color','w','Position',[100 100 1200 850]);
 tiledlayout(2,1,'TileSpacing','compact','Padding','compact');
 
 nexttile;
@@ -66,15 +66,17 @@ plot(Pref.Time, squeeze(Pref.Data),'k--','LineWidth',1.2); hold on;
 plot(Pw.Time,   squeeze(Pw.Data),'b','LineWidth',1.4);
 plot(Pw_meas.Time, squeeze(Pw_meas.Data),'r','LineWidth',1.0);
 grid on;
-ylabel('Pressão (bar)');
-legend('P_{ref}','P_w (verdadeira)','y = P_w + n','Location','best');
+ylabel('Pressão (bar)','FontSize',18);
+legend('P_{ref}','P_w (verdadeira)','y = P_w + n','Location','best','FontSize',16);
 
 nexttile;
 plot(omega_p.Time, squeeze(omega_p.Data),'k'); hold on;
 plot(u_in.Time,  squeeze(u_in.Data)*max(squeeze(omega_p.Data)),'b--');
 plot(u_out.Time, squeeze(u_out.Data)*max(squeeze(omega_p.Data)),'r--');
-grid on; xlabel('Tempo (s)'); ylabel('Comandos');
-legend('\omega_p','u_{in} (esc.)','u_{out} (esc.)','Location','best');
+grid on; 
+xlabel('Tempo (s)','FontSize',18); 
+ylabel('Comandos','FontSize',18);
+legend('\omega_p','u_{in} (esc.)','u_{out} (esc.)','Location','best','FontSize',16);
 xlim([0 Tstop]);
 
 %% Exportar PNG e PDF vetoriais onde o LaTeX espera
@@ -83,7 +85,7 @@ outDir = fullfile(scriptDir,'figuras');
 if ~exist(outDir,'dir'), mkdir(outDir); end
 outPng = fullfile(outDir,'artigo_simulacao_ruido_medicao.png');
 outPdf = fullfile(outDir,'artigo_simulacao_ruido_medicao.pdf');
-exportgraphics(fig, outPng, 'Resolution', 600);
+exportgraphics(fig, outPng, 'Resolution', 1200);
 exportgraphics(fig, outPdf, 'ContentType','vector');
 
 fprintf('OK: figura exportada: %s\n', outPng);

@@ -96,11 +96,11 @@ Qout_ml_s  = Qout.Data;
 
 %% Configuração de plots
 set(groot,'defaultLineLineWidth',1.6);
-set(groot,'defaultAxesFontSize',11);
+set(groot,'defaultAxesFontSize',12);
 set(groot,'defaultAxesFontName','Times New Roman');
 set(groot,'defaultFigureRenderer','painters');
 
-fig = figure('Color','w','Position',[100 100 980 720]);
+fig = figure('Color','w','Position',[100 100 1200 850]);
 tiledlayout(3,1,'TileSpacing','compact','Padding','compact');
 
 % Entradas
@@ -108,9 +108,9 @@ nexttile;
 plot(omega_p.Time, omega_p.Data,'k'); hold on;
 plot(u_in.Time,  u_in.Data*max(omega_p.Data),'b--');
 plot(u_out.Time, u_out.Data*max(omega_p.Data),'r--');
-grid on; ylabel('\omega_p (rad/s)');
-title('Entradas');
-legend('\omega_p','u_{in} (esc.)','u_{out} (esc.)','Location','best');
+grid on; ylabel('\omega_p (rad/s)','FontSize',18);
+title('Entradas','FontSize',18);
+legend('\omega_p','u_{in} (esc.)','u_{out} (esc.)','Location','best','FontSize',16);
 ymax = max(omega_p.Data); margem = 0.1*ymax;
 ylim([-max(2,margem), ymax + max(2,margem)]);
 xlim([0 Tstop]);
@@ -119,8 +119,8 @@ xlim([0 Tstop]);
 nexttile;
 plot(Psup.Time, Psup_g_bar,'b'); hold on;
 plot(Pw.Time,   Pw_g_bar,'r');
-grid on; ylabel('Pressão (bar)'); title('Pressões');
-legend('P_{sup}','P_w','Location','best');
+grid on; ylabel('Pressão (bar)','FontSize',18); title('Pressões','FontSize',18);
+legend('P_{sup}','P_w','Location','best','FontSize',16);
 ymin = min([Psup_g_bar(:); Pw_g_bar(:)]);
 ymax = max([Psup_g_bar(:); Pw_g_bar(:)]);
 ylim([min(ymin,0) ymax + 5]);
@@ -131,9 +131,9 @@ nexttile;
 plot(Qpump.Time, Qpump_ml_s,'k'); hold on;
 plot(Qin.Time,   Qin_ml_s,'b');
 plot(Qout.Time,  Qout_ml_s,'r');
-grid on; ylabel('Vazão (mL/s)'); xlabel('Tempo (s)');
-title('Vazões');
-legend('Q_{pump}','Q_{in}','Q_{out}','Location','best');
+grid on; ylabel('Vazão (mL/s)','FontSize',18); xlabel('Tempo (s)','FontSize',18);
+title('Vazões','FontSize',18);
+legend('Q_{pump}','Q_{in}','Q_{out}','Location','best','FontSize',16);
 ylim([-20 40]);
 xlim([0 Tstop]);
 
@@ -145,7 +145,7 @@ if ~exist(outDir,'dir'), mkdir(outDir); end
 pdfPath = fullfile(outDir,'artigo_ensaio_malha_aberta_integrado_real.pdf');
 pngPath = fullfile(outDir,'artigo_ensaio_malha_aberta_integrado_real.png');
 exportgraphics(fig, pdfPath, 'ContentType','vector');
-exportgraphics(fig, pngPath, 'Resolution', 600);
+exportgraphics(fig, pngPath, 'Resolution', 1200);
 
 disp('OK: figuras exportadas em:');
 disp(outDir);
