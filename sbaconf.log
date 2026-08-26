@@ -1,7 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.1.8)  13 JUL 2026 11:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.1.8)  21 AUG 2026 14:49
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
 **"d:/OneDrive - Continental AG/MestradoUspPoli/Anti-Brake System/Overleaf/Mestrado/Controle_Digital_de_Pressao_Hidraulica_ADAS_CBA/sbaconf.tex"
 (d:/OneDrive - Continental AG/MestradoUspPoli/Anti-Brake System/Overleaf/Mestrado/Controle_Digital_de_Pressao_Hidraulica_ADAS_CBA/sbaconf.tex
@@ -338,7 +337,11 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 LaTeX Font Info:    Calculating math sizes for size <14> on input line 84.
 \c@sv@footnote=\count308
- [1{C:/Users/uidq5744/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
+
+Underfull \vbox (badness 10000) detected at line 136
+ []
+
+[1{C:/Users/uidq5744/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -348,7 +351,10 @@ Overfull \hbox (1.68198pt too wide) in paragraph at lines 204--204
  \T1/aer/m/it/10 2.1 Da de-sa-ce-le-ra-ção à re-fe-rên-cia de pres-são (si-nal ex-terno
  []
 
-[2
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2
 
 ]
 Overfull \hbox (10.64241pt too wide) in paragraph at lines 212--212
@@ -366,15 +372,12 @@ File: modulo_2P_malha_fechada.png Graphic file (type png)
 <use modulo_2P_malha_fechada.png>
 Package pdftex.def Info: modulo_2P_malha_fechada.png  used on input line 355.
 (pdftex.def)             Requested size: 233.3125pt x 136.45677pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4 <./modulo_2P_malha_fechada.png>]
-<scripts/figuras/artigo_ensaio_malha_aberta_integrado_real.pdf, id=34, 852.18375pt x 632.3625pt>
+ [4]
+<scripts/figuras/artigo_ensaio_malha_aberta_integrado_real.pdf, id=33, 847.165pt x 630.355pt>
 File: scripts/figuras/artigo_ensaio_malha_aberta_integrado_real.pdf Graphic file (type pdf)
 <use scripts/figuras/artigo_ensaio_malha_aberta_integrado_real.pdf>
 Package pdftex.def Info: scripts/figuras/artigo_ensaio_malha_aberta_integrado_real.pdf  used on input line 373.
-(pdftex.def)             Requested size: 233.3125pt x 173.12347pt.
+(pdftex.def)             Requested size: 233.3125pt x 173.60304pt.
 
 Overfull \hbox (9.13005pt too wide) in paragraph at lines 379--380
 []\T1/aer/m/n/10 Em ma-lha fe-chada (Fi-gura 4[]), a ar-qui-te-tura LQI+observador
@@ -395,54 +398,54 @@ Underfull \hbox (badness 10000) in paragraph at lines 390--391
 \T1/aer/m/n/8 agres-si-vas, sem perda de
  []
 
-<scripts/figuras/simulacao_comandos_e_pressao.pdf, id=35, 851.18pt x 618.31pt>
+<scripts/figuras/simulacao_comandos_e_pressao.pdf, id=34, 851.18pt x 618.31pt>
 File: scripts/figuras/simulacao_comandos_e_pressao.pdf Graphic file (type pdf)
 <use scripts/figuras/simulacao_comandos_e_pressao.pdf>
 Package pdftex.def Info: scripts/figuras/simulacao_comandos_e_pressao.pdf  used on input line 399.
 (pdftex.def)             Requested size: 233.3125pt x 169.47441pt.
-<scripts/figuras/artigo_item01_metricas_tracking.pdf, id=36, 882.29625pt x 631.35875pt>
+<scripts/figuras/artigo_item01_metricas_tracking.pdf, id=35, 882.29625pt x 631.35875pt>
 File: scripts/figuras/artigo_item01_metricas_tracking.pdf Graphic file (type pdf)
 <use scripts/figuras/artigo_item01_metricas_tracking.pdf>
 Package pdftex.def Info: scripts/figuras/artigo_item01_metricas_tracking.pdf  used on input line 425.
 (pdftex.def)             Requested size: 233.3125pt x 166.95282pt.
-<scripts/figuras/artigo_item01_metricas_desempenho.pdf, id=37, 854.19125pt x 628.3475pt>
+<scripts/figuras/artigo_item01_metricas_desempenho.pdf, id=36, 854.19125pt x 628.3475pt>
 File: scripts/figuras/artigo_item01_metricas_desempenho.pdf Graphic file (type pdf)
 <use scripts/figuras/artigo_item01_metricas_desempenho.pdf>
 Package pdftex.def Info: scripts/figuras/artigo_item01_metricas_desempenho.pdf  used on input line 425.
 (pdftex.def)             Requested size: 233.3125pt x 171.62158pt.
-<scripts/figuras/artigo_item02_dpdt_saturacao.pdf, id=38, 852.18375pt x 631.35875pt>
+[5 <./modulo_2P_malha_fechada.png> <./scripts/figuras/artigo_ensaio_malha_aberta_integrado_real.pdf> <./scripts/figuras/simulacao_comandos_e_pressao.pdf> <./scripts/figuras/artigo_item01_metricas_tracking.pdf>]
+<scripts/figuras/artigo_item02_dpdt_saturacao.pdf, id=108, 852.18375pt x 631.35875pt>
 File: scripts/figuras/artigo_item02_dpdt_saturacao.pdf Graphic file (type pdf)
 <use scripts/figuras/artigo_item02_dpdt_saturacao.pdf>
 Package pdftex.def Info: scripts/figuras/artigo_item02_dpdt_saturacao.pdf  used on input line 437.
 (pdftex.def)             Requested size: 233.3125pt x 172.84868pt.
-[5 <./scripts/figuras/artigo_ensaio_malha_aberta_integrado_real.pdf> <./scripts/figuras/simulacao_comandos_e_pressao.pdf> <./scripts/figuras/artigo_item01_metricas_tracking.pdf>]
-<scripts/figuras/artigo_item03_assimetria_subida_descida.pdf, id=107, 843.15pt x 618.31pt>
+<scripts/figuras/artigo_item03_assimetria_subida_descida.pdf, id=109, 843.15pt x 618.31pt>
 File: scripts/figuras/artigo_item03_assimetria_subida_descida.pdf Graphic file (type pdf)
 <use scripts/figuras/artigo_item03_assimetria_subida_descida.pdf>
 Package pdftex.def Info: scripts/figuras/artigo_item03_assimetria_subida_descida.pdf  used on input line 449.
 (pdftex.def)             Requested size: 233.3125pt x 171.09717pt.
-<scripts/figuras/artigo_item04_ripple_fft.pdf, id=108, 847.165pt x 631.35875pt>
+<scripts/figuras/artigo_item04_ripple_fft.pdf, id=110, 847.165pt x 631.35875pt>
 File: scripts/figuras/artigo_item04_ripple_fft.pdf Graphic file (type pdf)
 <use scripts/figuras/artigo_item04_ripple_fft.pdf>
 Package pdftex.def Info: scripts/figuras/artigo_item04_ripple_fft.pdf  used on input line 461.
 (pdftex.def)             Requested size: 233.3125pt x 173.87949pt.
-<scripts/figuras/artigo_item06_sensibilidade_parametrica.pdf, id=109, 847.165pt x 631.35875pt>
+<scripts/figuras/artigo_item06_sensibilidade_parametrica.pdf, id=111, 847.165pt x 631.35875pt>
 File: scripts/figuras/artigo_item06_sensibilidade_parametrica.pdf Graphic file (type pdf)
 <use scripts/figuras/artigo_item06_sensibilidade_parametrica.pdf>
 Package pdftex.def Info: scripts/figuras/artigo_item06_sensibilidade_parametrica.pdf  used on input line 485.
 (pdftex.def)             Requested size: 233.3125pt x 173.87949pt.
-<scripts/figuras/artigo_item09_tradeoff_erro_esforco.pdf, id=110, 764.8575pt x 583.17876pt>
+<scripts/figuras/artigo_item09_tradeoff_erro_esforco.pdf, id=112, 764.8575pt x 583.17876pt>
 File: scripts/figuras/artigo_item09_tradeoff_erro_esforco.pdf Graphic file (type pdf)
 <use scripts/figuras/artigo_item09_tradeoff_erro_esforco.pdf>
 Package pdftex.def Info: scripts/figuras/artigo_item09_tradeoff_erro_esforco.pdf  used on input line 497.
 (pdftex.def)             Requested size: 233.3125pt x 177.89151pt.
  [6 <./scripts/figuras/artigo_item01_metricas_desempenho.pdf> <./scripts/figuras/artigo_item02_dpdt_saturacao.pdf> <./scripts/figuras/artigo_item03_assimetria_subida_descida.pdf> <./scripts/figuras/artigo_item04_ripple_fft.pdf> <./scripts/figuras/artigo_item06_sensibilidade_parametrica.pdf>]
-<scripts/figuras/artigo_item10_robustez_ruido.pdf, id=249, 844.15375pt x 628.3475pt>
+<scripts/figuras/artigo_item10_robustez_ruido.pdf, id=251, 844.15375pt x 628.3475pt>
 File: scripts/figuras/artigo_item10_robustez_ruido.pdf Graphic file (type pdf)
 <use scripts/figuras/artigo_item10_robustez_ruido.pdf>
 Package pdftex.def Info: scripts/figuras/artigo_item10_robustez_ruido.pdf  used on input line 511.
 (pdftex.def)             Requested size: 233.3125pt x 173.66379pt.
-<scripts/figuras/artigo_simulacao_ruido_medicao.pdf, id=250, 851.18pt x 619.31375pt>
+<scripts/figuras/artigo_simulacao_ruido_medicao.pdf, id=252, 851.18pt x 619.31375pt>
 File: scripts/figuras/artigo_simulacao_ruido_medicao.pdf Graphic file (type pdf)
 <use scripts/figuras/artigo_simulacao_ruido_medicao.pdf>
 Package pdftex.def Info: scripts/figuras/artigo_simulacao_ruido_medicao.pdf  used on input line 521.
@@ -460,15 +463,15 @@ L3 programming layer <2024-01-04>
 Here is how much of TeX's memory you used:
  5789 strings out of 474479
  99286 string characters out of 5742176
- 1948542 words of memory out of 5000000
+ 1947542 words of memory out of 5000000
  27963 multiletter control sequences out of 15000+600000
  577796 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  61i,13n,71p,1824b,410s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmb10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/uidq5744/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on sbaconf.pdf (8 pages, 3977937 bytes).
+Output written on sbaconf.pdf (8 pages, 3978319 bytes).
 PDF statistics:
- 404 PDF objects out of 1000 (max. 8388607)
+ 406 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  66 words of extra memory for PDF output out of 10000 (max. 10000000)
 
